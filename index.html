@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinTech Card Game</title>
+    <!-- Bootstrap5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">FinTech Card Game</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Instructions</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Bank <span id="bank">${value}</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <button>Start</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div id="intro">
+        <h2>The FinTech Card Investment Game</h2>
+        <hr>
+        <h3>How to Play</h3>
+        <br>
+        <p>The purpose of this game is for the player to purchase 4 out of the 8 cards available and accumulate as much
+            bank as possible from picking the best performing stocks. Each card will be populated by a figure, and after
+            selecting the deck, an API call will evaluate the stock price and return either an increase or a loss
+            depending on the stocks performance, if you pick well you will increase your overall bank, however if you
+            pick poorly you could loose it all! </p>
+        <button id="intro">Click Here to Hide Instructions</button>
+        <br>
+        <hr>
+    </div>
+    <br>
+    <div class="container-fluid" id="top">
+        <div class="container">
+            <div class="row">
+                <div class="col card"><img src="/Milestone Project 2/assets/images/joker.png" alt="joker playing card">
+                </div>
+                <div class="col card"><img src="/Milestone Project 2/assets/images/joker.png" alt="joker playing card">
+                </div>
+                <div class="col card"><img src="/Milestone Project 2/assets/images/joker.png" alt="joker playing card">
+                </div>
+                <div class="col card"><img src="/Milestone Project 2/assets/images/joker.png" alt="joker playing card">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col card"><img src="/Milestone Project 2/assets/images/joker.png" alt="joker playing card">
+                </div>
+                <div class="col card"><img src="/Milestone Project 2/assets/images/joker.png" alt="joker playing card">
+                </div>
+                <div class="col card"><img src="/Milestone Project 2/assets/images/joker.png" alt="joker playing card">
+                </div>
+                <div class="col card"><img src="/Milestone Project 2/assets/images/joker.png" alt="joker playing card">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col" style="background-color: red">First</div>
+                <div class="col">Second</div>
+                <div class="col" style="background-color: green">Third</div>
+                <div class="col" style="background-color: grey">Fourth</div>
+            </div>
+        </div>
+
+    </div>
+    <footer>
+        <div><a href="#top">Back to Top</a></div>
+        <div><a href="/Milestone Project 2/contact.html">Contact Us</a> </div>
+        <div>High Scores</div>
+    </footer>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
