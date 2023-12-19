@@ -10,7 +10,7 @@
 
 // });
 
-document.addEventListener("DOMContentLoaded",function(){
+document.addEventListener("DOMContentLoaded", function () {
 
     let introHide = document.getElementById("intro");
 
