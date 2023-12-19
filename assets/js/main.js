@@ -18,6 +18,6 @@ document.addEventListener("DOMContentLoaded", function () {
         introHide.classList.add("hide");
     });
 
-
+    console.log("Hello World");
 
 });
