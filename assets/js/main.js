@@ -1,16 +1,23 @@
-$(document).ready(function () {
+// $(document).ready(function () {
 
-    $("#test").click(function () {
-        $("#test").html("TWO THREE FOUR");
+//     $("#test").click(function () {
+//         $("#test").html("TWO THREE FOUR");
+//     });
+
+//     // $("#intro").click(function () {
+//     //     $("#intro").addClass("hide");
+//     // });
+
+// });
+
+document.addEventListener("DOMContentLoaded",function(){
+
+    let introHide = document.getElementById("intro");
+
+    introHide.addEventListener("click", function () {
+        introHide.classList.add("hide");
     });
 
-    $("#intro").click(function () {
-        $("#intro").addClass("hide");
-    });
+
 
 });
-
-// function hide() {
-//     let hideintro = document.getElementById("intro");
-//     hideintro.addClass("hide");
-// };
