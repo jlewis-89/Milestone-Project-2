@@ -1,4 +1,4 @@
-# MIlestone Project 2!!!
+# MIlestone Project 2
 ## Interactive Frontend Development
 ## FinTech Card Game
 
