@@ -1,12 +1,12 @@
 html {
     max-width: 100%;
     max-height: 100%;
-    margin: auto;
     display: flexbox;
 }
 
 body {
-    background-color: #111
+    background-color: #111;
+    margin: auto;
 }
 
 div {
@@ -33,6 +33,21 @@ footer {
     justify-content: center;
     padding: 25px 25px 25px 25px;
     margin: 20px;
+}
+
+.card {
+    
+    border-radius: 16px;
+    padding: 10px;
+    margin: 15px;
+    background-color: rgb(111, 1, 1);
+    position: relative;
+    transform-style: preserve-3d;
+    transition: all 0.5s ease-in-out;
+}
+
+.flip {
+    transform: rotateY(180deg);
 }
 
 /* js classes */

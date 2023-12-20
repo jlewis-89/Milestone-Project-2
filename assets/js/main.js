@@ -20,4 +20,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
     console.log("Hello World");
 
+    let startGame = document.getElementById("start");
+    startGame.addEventListener("click", function (){    
+        startGame.innerHTML = "Reset";
+        let bank = document.getElementById("bank");
+        bank.innerHTML = "10000";
+    });
+
+    // let cardSelect = document.getElementsByClassName("card");
+    // cardSelect.addEventListener("click", function(){
+    //     cardSelect.classList.add("flip");
+    // });
+
+    // startGame()
+
+    // resetGame()
+
+    // updateBank()
+
+    // generateValues()
+
 });
