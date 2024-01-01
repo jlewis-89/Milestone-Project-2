@@ -32,13 +32,18 @@
             </div>
         </nav>
     </header>
-    <form action="" class="form">
-        <div><label for="forminput">Enter your Information & Let us know your thoughts!</label></div>
-        <div><input id="forminput" class="email" type="email" name="emailaddress"value="youremail@exmaple.com" required></div>
-        <div><input id="forminput" type="text" name="comments" value="Comment Here" required></div>
-        <button onclick="alert('Thanks for your response')">Submit</button>
+    <section class="center">
+    <h2>We are Always Interested in your feedback!</h2>
+    <p>If you have found this game fun and educational or have an idea to improve it please let us know in the comments below</p>
+    <p>If you have found a bug Please report it in the comments below so the team can fix it.</p>
+    <form action="" class="form-control">
+        <label for="formEmail" class="form-label">Email:</label>
+        <input id="formEmail" class="form-control" type="email" name="emailaddress" value="email@example.com" autocomplete="email" autofocus required>
+        <label for="">Comments:</label>
+        <textarea id="formComment" class="form-control" type="text" name="comments" value="Comment Here"></textarea>
+        <button class="btn btn-primary" onclick="alert('Thanks for your response')">Submit</button>
     </form>
-
+    </section>
     <footer>
         <!-- change link when deployed -->
         <div><a href="/index.html">Back to Home</a></div>

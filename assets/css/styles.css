@@ -22,16 +22,15 @@ div {
     margin: auto;
 }
 
-.form {
-    position: relative;
-    margin-top: 12vh;
-    height: auto;
-    text-align: center;
-
-}
-
 button {
     margin: 5px;
+}
+
+.center{
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+    padding: 10vh 25vw 10vh 25vw;
 }
 
 footer {
@@ -45,23 +44,8 @@ footer {
 }
 
 label {
-    padding: 15px;
-    margin: 15px;
+    padding: 10px;
     font-family: Rubik Scribble, sans-serif;
-}
-
-#forminput {
-    display: inline-block;
-    height: auto;
-    width: fit-content;
-    padding: 12px;
-    text-align:left;
-    text-decoration: double;
-}
-
-.email {
-    height: auto;
-    width: 100px;
 }
 
 .card {
@@ -78,7 +62,6 @@ label {
 .flip:hover {
     transform: rotateY(180deg);
     position: relative;
-    background-color: rgb(228, 225, 225);
     /* makes card dissapear after rotation  */
     backface-visibility: hidden;
 }
