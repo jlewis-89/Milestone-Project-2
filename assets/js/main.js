@@ -20,12 +20,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
     console.log("Hello World");
 
+    // Game Core Logic
+    let cardDeck = [];
+
     let startGame = document.getElementById("start");
     startGame.addEventListener("click", function () {
         startGame.innerHTML = "Reset";
         let bank = document.getElementById("bank");
         bank.innerHTML = "10000";
     });
+
+    let cardFlip = document.getElementsByClassName("card");
+    cardFlip.addEventListener("click", function () {
+        cardFlip.classList.add("flip");
+    });
+
+
+
 
     // let cardSelect = document.getElementsByClassName("card");
     // cardSelect.addEventListener("click", function(){

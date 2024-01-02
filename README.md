@@ -20,9 +20,21 @@ The card game creates an interactive arena for users to build a deck and passive
 * As a user I would like to experience a fun and interactive game that is also educational and enjoyable to play
 * As a user I would like to be able to navigate around the website simply and easily, with a clean and comfortable User Interface
 
+### UI
+
 ### Design
 
+A Playful and creative font was used to highlight the nature of the website in headings and labels the font chosen was
+ sourced from [Google Fonts] and called [Rubik Scribble]
+
 ## Testing
+
+HTML Validator
+
+CSS Validator
+
+User Testing / Alpha Testing
+
 ### JEST Test Suite
 
 
@@ -33,4 +45,7 @@ The card game creates an interactive arena for users to build a deck and passive
 loader gif sourced @ https://gifer.com/en/gifs/loader
 joker png sourced from powerpoint icons
 
-bootstrap navbar
+BS5 - bootstrap navbar
+
+BS5 - Form Layout and Button with additional CSS
+

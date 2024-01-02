@@ -12,6 +12,13 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="assets/css/styles.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("FkT7PPRU8f0yNFGdI");
+        })();
+    </script>
 </head>
 
 <body>
@@ -19,7 +26,8 @@
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">FinTech Card Game</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapsibleNavbar">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="collapsibleNavbar">
@@ -33,16 +41,22 @@
         </nav>
     </header>
     <section class="center">
-    <h2>We are Always Interested in your feedback!</h2>
-    <p>If you have found this game fun and educational or have an idea to improve it please let us know in the comments below</p>
-    <p>If you have found a bug Please report it in the comments below so the team can fix it.</p>
-    <form action="" class="form-control">
-        <label for="formEmail" class="form-label">Email:</label>
-        <input id="formEmail" class="form-control" type="email" name="emailaddress" value="email@example.com" autocomplete="email" autofocus required>
-        <label for="">Comments:</label>
-        <textarea id="formComment" class="form-control" type="text" name="comments" value="Comment Here"></textarea>
-        <button class="btn btn-primary" onclick="alert('Thanks for your response')">Submit</button>
-    </form>
+        <h2>We are Always Interested in your feedback!</h2>
+        <p>If you have found this game fun and educational or have an idea to improve it please let us know in the
+            comments below</p>
+        <p>If you have found a bug Please report it in the comments below so the team can fix it.</p>
+        <form onsubmit="return sendMail(this);" class="form-control">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" name="name" id="name" placeholder="Your Name" class="form-control" autocomplete="name"
+                required />
+            <label for="formEmail" class="form-label">Email:</label>
+            <input id="formEmail" class="form-control" type="email" name="emailaddress" placeholder="email@example.com"
+                autocomplete="email" required />
+            <label for="formComment">Comments:</label>
+            <textarea id="formComment" class="form-control" type="text" name="comments"
+                placeholder="Comment Here"></textarea>
+            <button type="submit" class="btn btn-primary" onclick="alert('Thanks for your response')">Submit</button>
+        </form>
     </section>
     <footer>
         <!-- change link when deployed -->
@@ -50,7 +64,8 @@
         <div> <a href="/contact.html">Contact Us</a></div>
         <div>High Scores</div>
     </footer>
-    <script src="assets/js/main.js"></script>
+    <!-- <script src="assets/js/main.js"></script> -->
+    <script src="assets/js/email.js"></script>
 </body>
 
 </html>
