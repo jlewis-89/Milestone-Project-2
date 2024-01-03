@@ -30,12 +30,10 @@ document.addEventListener("DOMContentLoaded", function () {
         bank.innerHTML = "10000";
     });
 
-    let cardFlip = document.getElementsByClassName("card");
-    cardFlip.addEventListener("click", function () {
-        cardFlip.classList.add("flip");
-    });
+    let coIcon = [assets/images/Tesla_Motors.png, assets/images/Microsoft_logo.png, assets/images/Apple_logo_black.png];
+    let coTicker = [TSLA, MSFT, AAPL];
 
-
+    // math rand select 1 coIcon, && math rand select 1 coTicker apply to card
 
 
     // let cardSelect = document.getElementsByClassName("card");

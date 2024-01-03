@@ -37,7 +37,7 @@ footer {
     position: absolute;
     bottom: 10px;
     width: 100%;
-    display: flex;
+    display: none;
     justify-content: center;
     padding: 25px 25px 25px 25px;
     margin: 20px;
@@ -59,18 +59,25 @@ label {
     transition: all 0.8s ease-in-out;
 }
 
-/* .flip:hover {
+.card-bg {
+    height: inherit;
+    width: auto;
+    
+    
+    /* mask-image: image("assets/images/loader.gif"); */
+}
 
-    /* makes card dissapear after rotation  */
-    /* backface-visibility: hidden; */
-    /* backface-visibility: visible; */
-/* } */ */
+.t-box{
+    justify-content: center;
+    text-align: center;
+}
 
-.flip {
+.flip:hover {
     transform: rotateY(180deg);
     position: relative;
-    background-color: aliceblue;
-    backface-visibility: visible;
+    background-color: none;
+    backface-visibility: hidden;
+    background-image: image("assets/images/loader.gif");
 }
 
 /* js classes */
