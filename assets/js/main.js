@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
     startGame.addEventListener("click", () => {
         gameRun = true;
         console.log(gameRun);
-        gameFunc(coTicker)
+        gameFunc(coTicker);
     });
 
     stopGame.addEventListener("click", () =>{
@@ -60,6 +60,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 });
+
+// start stop button --- event listener toggle ---???
     //while game is running set target ticker, wait for user select input, start timeout clock function,
     //compare user selections && if user selects pairs in time score ++ else score --
     //Update target ticker
