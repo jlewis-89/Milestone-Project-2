@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let cardDeck = [];
     let coTicker = ["TSLA", "MSFT", "AAPL"];
     // Start Game Function
+    
     let startGame = document.getElementById("start");
     startGame.addEventListener("click", function () {
         gameRun = true;
@@ -55,12 +56,18 @@ document.addEventListener("DOMContentLoaded", function () {
             startGame.innerHTML = "Start";
             startGame.removeEventListener;
         });
-
+        
     });
+    
 
 
+    // let coIcon = {"tsla": "assets/images/Tesla_Motors.png",
+    // "msft": "assets/images/Microsoft_logo.png", 
+    // "aapl": "assets/images/Apple_logo_black.png"};
+    
+    // console.log(coIcon.value({"tsla"}));
 
-    // let coIcon = [assets/images/Tesla_Motors.png, assets/images/Microsoft_logo.png, assets/images/Apple_logo_black.png];
+
 
 
 

@@ -77,10 +77,34 @@ label {
     position: relative;
     background-color: none;
     backface-visibility: hidden;
+    /* remove line below  */
     background-image: image("assets/images/loader.gif");
+}
+
+img {
+    display: flexbox;
+    height: inherit;
+    width: auto;
+    border-radius: 50%;
 }
 
 /* js classes */
 .hide {
     display: none;
 }
+
+
+
+/* .tsla {
+    background-image: image(assets/images/Tesla_Motors.png);
+    
+}
+
+.msft {
+    background-image: image(assets/images/Microsoft_logo.png);
+
+}
+
+.aapl {
+    background-image: image(assets/images/Apple_logo_black.png);
+} */
