@@ -37,7 +37,7 @@ footer {
     position: absolute;
     bottom: 10px;
     width: 100%;
-    display: none;
+    display: flex;
     justify-content: center;
     padding: 25px 25px 25px 25px;
     margin: 20px;
@@ -86,6 +86,45 @@ img {
     height: inherit;
     width: auto;
     border-radius: 50%;
+}
+
+/* table classes  */
+
+table {
+    display: flexbox;
+    min-width: 50vw;
+    border:#4b4453 2px;
+    height: fit-content;
+    width: max-content;
+}
+
+th {
+    font-family: Rubik Scribble, sans-serif;
+    text-underline-position: below;
+    border-inline: 2px solid white;
+    
+}
+
+tr {
+    height: inherit;
+    width: auto;
+    border: 2px solid white;
+}
+
+td{
+    padding: 2px;
+    margin: auto;
+    height: inherit;
+    width: auto;
+}
+
+.timer {
+    display: inline-block;
+    padding: 15px;
+    margin: 16px 16px 16px 16px;
+    border: 5px solid white;
+    text-align: center;
+    font-family: Rubik Scribble, sans-serif;
 }
 
 /* js classes */

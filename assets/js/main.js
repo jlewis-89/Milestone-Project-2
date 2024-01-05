@@ -10,56 +10,115 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("Hello World");
 
     // Game Core Logic
-    let gameRun;
+    let gameRun = false;
     let cardDeck = [];
     let coTicker = ["TSLA", "MSFT", "AAPL"];
     let startGame = document.getElementById("start");
     let bank = document.getElementById("bank");
     let targetCo = document.querySelector("#targetCo");
     let executeBtn = document.getElementById("execute");
-    let stopGame = document.getElementById("stop");
+    let inGame = document.getElementById("inGame");
     
-    
-    // Start Game Function
-    function gameFunc(coTicker){
-        console.log("gameFunc ran")
-        startGame.innerHTML = "Stop";
-        startGame.setAttribute("id","stop");   
-        bank.innerHTML = "10000";
+        function gameFunc(coTicker){
         
+            console.log("gameFunc ran")
+            startGame.innerHTML = "Stop";
+            bank.innerHTML = "10000";
+            inGame.innerText = "Double Click Stop to Exit!"
+            // startGame.setAttribute("id","stop");
+            // startGame.removeEventListener("click", startGameHandler);
 
-        // Target Generator
-        function newTarget(coTicker) {
-            let targetIndex = Math.floor(Math.random() * coTicker.length);
-            return coTicker[targetIndex];
-        }
-        let targetTicker = newTarget(coTicker);
-        console.log(targetTicker);
-        // Update Page with Ticker Target
-        targetCo.innerHTML = targetTicker;
-
-        executeBtn.addEventListener("click", () => {
-            targetTicker = newTarget(coTicker); // call newTarget function and update target Ticker
-            console.log(targetTicker); //testing function
+            // Target Generator
+            function newTarget(coTicker) {
+                let targetIndex = Math.floor(Math.random() * coTicker.length);
+                return coTicker[targetIndex];
+            }
+            let targetTicker = newTarget(coTicker);
+            console.log(targetTicker);
+            // Update Page with Ticker Target
             targetCo.innerHTML = targetTicker;
-        });
 
-        setTimeout(console.log("Game Running"), 10000);
-        // return gameRun = false;
+            executeBtn.addEventListener("click", () => {
+                targetTicker = newTarget(coTicker); // call newTarget function and update target Ticker
+                console.log(targetTicker); //testing function
+                targetCo.innerHTML = targetTicker;
+            });
+
+            console.log("Game State is " + gameRun)
+        };
+    
+    
+    let startGameHandler = () => {
+        gameRun = !gameRun;
+        gameFunc(coTicker);
+        console.log("startgame Event Clicked " + gameRun);
+        setTimeout(toggleTest, 1500);  
     };
 
-    startGame.addEventListener("click", () => {
-        gameRun = true;
-        console.log(gameRun);
-        gameFunc(coTicker);
-    });
+    startGame.addEventListener("click", startGameHandler);
+    
+    
 
-    stopGame.addEventListener("click", () =>{
-        this.location.reload();
-    })
+    let toggleTest = () =>{
+        if (gameRun = !gameRun){
+        startGame.innerHTML = "Start";
+        bank.innerHTML = "";
+        targetCo.innerHTML = "";
+        inGame.innerText = "";
+        console.log("toggle func triggered");
+        };
+    };
 
 
-});
+    // let stopGameHandler = () => {
+    //     gameRun = !gameRun;
+    //     startGame.innerHTML = "Start";
+    //     bank.innerHTML = "";
+    //     targetCo.innerHTML = "";
+    //     console.log("stop button clicked")
+    // };
+
+    
+    // gameFunc(coTicker);
+    
+    // let stopGame = document.getElementById("stop");
+
+    // stopGame.addEventListener("click", stopGameHandler);
+
+    // setTimeout(gameRun,100);
+
+    // function checkGameState(gameRun) {
+    //     if (gameRun === true) {
+    //         gameFunc(coTicker);
+            
+    //         } else {
+            
+    //     };
+    // };
+
+    //counter timing function
+    let counter = document.getElementById("counter");
+    counter.innerHTML = 1000 + "s" //test line
+
+    // Scoreboard Functions
+
+    // let scoreboard = document.querySelector("id","score");
+    // let playerName = document.querySelector("id", "playerName");
+    // let playerScore = document.querySelector("id", "playerScore");
+    // playerScore.textContent = "WInner";
+    // playerName.textContent = "namanam";
+
+
+    
+
+    
+
+    
+
+    
+
+
+}); // End of DOM Loader
 
 // start stop button --- event listener toggle ---???
     //while game is running set target ticker, wait for user select input, start timeout clock function,
@@ -82,11 +141,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // generateValues()
 
-    // if (gameRun === true) {
-    //     gameFunc(gameRun, coTicker);
-    // } else {
 
-    // };
+    
 
 
 
