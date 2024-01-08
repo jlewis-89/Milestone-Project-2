@@ -23,6 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let inGame = document.getElementById("inGame");
     let counter = document.getElementById("counter");
     let moveTime = 0;
+    let pScore = 10000;
 
         // START OF GAME FUNCTION
 
@@ -30,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
             
             console.log("gameFunc ran")
             startGame.innerHTML = "Stop";
-            bank.innerHTML = "10000";
+            bank.innerHTML = "1000";
             inGame.innerText = "Double Click Stop to Exit!";
             counter.innerHTML = moveTime;
             updateTimer();
@@ -105,7 +106,29 @@ document.addEventListener("DOMContentLoaded", function () {
         };
     };
 
+    let userName = () => {
+    let pName = prompt("Enter Player Name");
+    console.log(pName);
+    playerName.innerHTML = pName;
+    pScore = document.getElementById("bank").innerHTML;
+};
 
+    let playerName = document.getElementById("playerName");
+
+if (pScore === 0){
+    gameOverLost();
+}else if (pScore === 20000){
+    gameOverWin();
+}
+
+    function gameOverLost (){
+        alert("Game Over!! Better Luck Next Time")
+    };
+
+    function gameOverWin (){
+        alert("Congratulations You WON!")
+        userName();
+    };
     // let stopGameHandler = () => {
     //     gameRun = !gameRun;
     //     startGame.innerHTML = "Start";

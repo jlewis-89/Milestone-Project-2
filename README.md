@@ -3,9 +3,7 @@
 ## FinTech Card Game
 
 ### Purpose
-The purpose of this website is to create a card game based on finacial figures taken from an API and used as the input to cards that the user can select to build a card portfolio the value of which will be summed at the end and the highest value portfolio will be added to the leaderboard.
-
-The card game creates an interactive arena for users to build a deck and passively learn about financial metrics and the effect these can have on investment in a fun and dynamic environment.
+The purpose of this website is to create a card game based on fast paced execution, to find matching pairs based on a randomly selected ticker, find and match a pair of company logo's based on the ticker shown and execute the trade within the timer window. The timer will randomly generate how long the player has to find the pair, to keep the game chanllenging. Each pair successfully found will contribute to the players score, each missed pair will reduce the players score. 
 
 ## Technologies Used
 
@@ -26,6 +24,8 @@ The card game creates an interactive arena for users to build a deck and passive
 * As a user I would like to be able to navigate around the website simply and easily, with a clean and comfortable User Interface
 
 ### UI
+
+* As a user of this website I would like a clean simple and interactive webpage to use and navigate easily
 
 #### Wireframe
 ![Wireframe Using Mockup](/assets/images/Wireframe-moqups.png)
