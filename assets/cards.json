@@ -1,0 +1,22 @@
+[
+    {
+        "image": "assets/images/Apple_logo_black.png",
+        "name": "AAPL"
+    },
+    {
+        "image": "assets/images/Microsoft_logo.png",
+        "name": "MSFT"
+    },
+    {
+        "image": "assets/images/Tesla_Motors.png",
+        "name": "TSLA"
+    },
+    {
+        "image": "assets/images/joker.png",
+        "name": "JKER"
+    },
+    {
+        "image": "assets/images/loader.gif",
+        "name": "LDER"
+    }
+]

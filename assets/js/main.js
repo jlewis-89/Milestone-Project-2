@@ -129,50 +129,13 @@ if (pScore === 0){
         alert("Congratulations You WON!")
         userName();
     };
-    // let stopGameHandler = () => {
-    //     gameRun = !gameRun;
-    //     startGame.innerHTML = "Start";
-    //     bank.innerHTML = "";
-    //     targetCo.innerHTML = "";
-    //     console.log("stop button clicked")
-    // };
 
-    
-    // gameFunc(coTicker);
-    
-    // let stopGame = document.getElementById("stop");
-
-    // stopGame.addEventListener("click", stopGameHandler);
-
-    // setTimeout(gameRun,100);
-
-    // function checkGameState(gameRun) {
-    //     if (gameRun === true) {
-    //         gameFunc(coTicker);
-            
-    //         } else {
-            
-    //     };
-    // };
-    
-    //counter timing function
-    
-     //test line
-
-    // while (gameRun === true && startGame.innerHTML != "Start"){
-
-    //     time = Math.floor(Math.random()*10);
-    //     setTimeout(console.log(time),10000);
-    // };
-
-    // Scoreboard Functions
-
-    // let scoreboard = document.querySelector("id","score");
-    // let playerName = document.querySelector("id", "playerName");
-    // let playerScore = document.querySelector("id", "playerScore");
-    // playerScore.textContent = "Winner";
-    // playerName.textContent = "namanam";
-
+// Initalise the Card Deck by grabbing the data from the json file holding tyhe card object and name - Youtube project
+    fetch("assets/cards.json")
+        .then((res) => res.json())
+        .then((data) => {
+            cardDeck = [...data, ...data];
+        });
 
     
 
@@ -185,39 +148,3 @@ if (pScore === 0){
 
 }); // End of DOM Loader
 
-// start stop button --- event listener toggle ---???
-    //while game is running set target ticker, wait for user select input, start timeout clock function,
-    //compare user selections && if user selects pairs in time score ++ else score --
-    //Update target ticker
-    // let coIcon = {"tsla": "assets/images/Tesla_Motors.png",
-    // "msft": "assets/images/Microsoft_logo.png", 
-    // "aapl": "assets/images/Apple_logo_black.png"};
-        // math rand select 1 coIcon, && math rand select 1 coTicker apply to card
-    // let cardSelect = document.getElementsByClassName("card");
-    // cardSelect.addEventListener("click", function(){
-    //     cardSelect.classList.add("flip");
-    // });
-
-    // startGame()
-
-    // resetGame()
-
-    // updateBank()
-
-    // generateValues()
-
-
-    
-
-
-
-// if (gameRun === false){
-//     gameFunc(gameRun, coTicker);
-// } else {stopGame.addEventListener("click", function () {
-//     stopGame.removeEventListener;
-//     gameRun = false;
-//     startGame.innerHTML = "Start";
-//     bank.innerHTML = "";
-//     targetCo.innerHTML = "";
-//     });
-// }

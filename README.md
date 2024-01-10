@@ -58,7 +58,19 @@ The API has been successfully linked and displays a console log message and  res
 
 ## Notes
 
+### Buges & Fixes
+*Start Stop not updating or changing state.
+-Fix Timeout added - If stop double clicked game will end and update game state
+
+*Random time generator can generate 0 as time
+-Fix if statement if 0 add 10
+
+*Random time can be less than 5s
+-Fix ...
+
 ## Credit
+
+Card Game [https://www.youtube.com/watch?v=xWdkt6KSirw]
 
 ### Resources
 * Youtube
