@@ -53,22 +53,13 @@ label {
 }
 
 .card {
-
+    height: 210px;
+    width: 140px;
     border-radius: 16px;
-    padding: 10px;
-    margin: 15px;
-    background-color: rgb(111, 1, 1);
+    background-color: rgb(225, 216, 216);
     position: relative;
     transform-style: preserve-3d;
-    transition: all 0.8s ease-in-out;
-}
-
-.card-bg {
-    height: inherit;
-    width: auto;
-    
-    
-    /* mask-image: image("assets/images/loader.gif"); */
+    transition: all 0.3s ease-in-out;
 }
 
 .t-box{
@@ -76,27 +67,11 @@ label {
     text-align: center;
 }
 
-.flip:hover {
-    transform: rotateY(180deg);
-    position: relative;
-    background-color: none;
-    backface-visibility: hidden;
-    /* remove line below  */
-    background-image: image("assets/images/loader.gif");
-}
-
-img {
-    display: flexbox;
-    height: inherit;
-    width: auto;
-    border-radius: 50%;
-}
-
 /* table classes  */
 
 table {
     display: flexbox;
-    min-width: 50vw;
+    min-width: 75vw;
     border:#4b4453 2px;
     height: fit-content;
     width: max-content;
@@ -123,7 +98,7 @@ td{
 }
 
 .timer {
-    display: inline-block;
+    display: flexbox;
     padding: 15px;
     margin: 16px 16px 16px 16px;
     border: 5px solid white;
@@ -141,18 +116,57 @@ td{
     display: none;
 }
 
-
-
-/* .tsla {
-    background-image: image(assets/images/Tesla_Motors.png);
-    
+.gridContainer{
+    display: grid;
+    justify-content: center;
+    grid-gap: 24px;
+    grid-template-columns: repeat(5, 140px);
+    grid-template-rows: repeat(2, 210px);
 }
 
-.msft {
-    background-image: image(assets/images/Microsoft_logo.png);
-
+.front {
+    backface-visibility: hidden;
+    position: absolute;
+    border-radius: 25px;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
 }
 
-.aapl {
-    background-image: image(assets/images/Apple_logo_black.png);
+.back {
+    backface-visibility: hidden;
+    position: absolute;
+    border-radius: 25px;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.front-image {
+    height: 60px;
+    width: 60px;
+}
+
+.card.flipped {
+    transform: rotateY(180deg);
+}
+
+.card .front{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotateY(180deg);
+}
+
+.card .back {
+    background-image: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='40' height='40' patternTransform='scale(2) rotate(0)'><rect x='0' y='0' width='100%' height='100%' fill='hsla(0, 85%, 41%, 1)'/><path d='M20 20v20h20V20zm10 5l5 5-5 5-5-5zM0 0v20h20V0zm10 5l5 5-5 5-5-5z'  stroke-width='1' stroke='none' fill='hsla(259, 90%, 44%, 1)'/><path d='M10 25l5 5-5 5-5-5zM30 5l5 5-5 5-5-5z'  stroke-width='1' stroke='none' fill='hsla(0, 0%, 100%, 1)'/></pattern></defs><rect width='800%' height='800%' transform='translate(0,0)' fill='url(%23a)'/></svg>");
+    background-position: center center;
+    background-size: cover;
+    backface-visibility: hidden;
+}
+
+/* .card:hover {
+    transform: rotateY(180deg);
 } */
