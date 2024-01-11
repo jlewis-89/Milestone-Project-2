@@ -78,22 +78,26 @@ document.addEventListener("DOMContentLoaded", function () {
             firstCard = this;
             return;
         }
-
         secondCard = this;
-        pScore = pScore + 200;
         // locked = true;
-        checkMatch();
+        // checkMatch();
         console.log("flipcard called");
     };
 
     function checkMatch() {
-        // console.log(firstCard.dataset.name);
-        // console.log(firstCard.data.name);
+        
+        // console.log(" firstCard dataset name is" + firstCard.dataset.name);
         console.log("check match called");
-        if (firstCard.dataset.name === secondCard.dataset.name && secondCard.dataset.name === targetTicker){
+        // console.log(typeof(firstCard.dataset.name));
+        if (firstCard === secondCard && secondCard.dataset.name === targetTicker){
             disableCards()
+            // shuffleDeck();
+            pScore += 200;
+            bank.innerHTML = pScore;
+            console.log("cards Match target")
         }else{
             unflipCards()
+            console.log("cards dont match!")
         };  
     };
 
@@ -101,8 +105,7 @@ document.addEventListener("DOMContentLoaded", function () {
         firstCard.removeEventListener("click", flipCard);
         secondCard.removeEventListener("click", flipCard);
         resetBoard();
-        console.log("cards disabled");
-        pScore += 200;
+        console.log("cards removed");
     };
 
     function unflipCards() {
@@ -128,6 +131,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     let targetTicker = newTarget(coTicker);
     console.log(targetTicker);
+
     // Update Page with Ticker Target
     targetCo.innerHTML = targetTicker;
     
@@ -140,9 +144,10 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     function executeButtonPressed() {
+        
         checkMatch();
         // resetBoard();
-        shuffleDeck();
+        
         updateTimer();
     };
    
@@ -150,7 +155,7 @@ document.addEventListener("DOMContentLoaded", function () {
             
         console.log("gameFunc ran")
         startGame.innerHTML = "Stop";
-        bank.innerHTML = "10000";
+        bank.innerHTML = pScore;
         inGame.innerText = "Double Click Stop to Exit!";
         counter.innerHTML = moveTime;
         updateTimer();
@@ -164,7 +169,7 @@ document.addEventListener("DOMContentLoaded", function () {
         setInterval(countDown, 1000); // Call countdown function every second
         console.log("Game State is " + gameRun)
      
-    }; // END OF GAMEFUNC
+    }; 
         
         // Generate Random Time, check its not 0 (if so make it 10)
     function updateTimer() {
@@ -198,12 +203,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let toggleTest = () =>{
         if (gameRun = !gameRun){
-        startGame.innerHTML = "Start";
-        bank.innerHTML = "";
-        targetCo.innerHTML = "";
-        inGame.innerText = "";
-        counter.innerHTML = "00s";
-        // resetBoard();
+        // startGame.innerHTML = "Start";
+        // bank.innerHTML = "";
+        // targetCo.innerHTML = "";
+        // inGame.innerText = "";
+        // counter.innerHTML = "00s";
+        this.location.reload()
+        
         console.log("toggle func triggered");
         };
     };

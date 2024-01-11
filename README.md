@@ -71,6 +71,9 @@ The API has been successfully linked and displays a console log message and  res
 *Random time can be less than 5s
 -Fix ...
 
+* Timer function froze
+  - Moved function call out of gameFunc00000000000
+
 ## Credit
 
 Card Game [https://www.youtube.com/watch?v=xWdkt6KSirw]
