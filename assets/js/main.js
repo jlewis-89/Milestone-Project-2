@@ -33,7 +33,9 @@ document.addEventListener("DOMContentLoaded", function () {
         .then((data) => {
             cardDeck = [...data, ...data];
             console.log("fetch read json doc");
+            console.log(typeof(data));
             console.log(data);
+            console.log(cardDeck[0].name);
         });
 
     function shuffleDeck() {
@@ -78,18 +80,21 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         secondCard = this;
-        pscore = pScore + 200;
-        locked = true;
+        pScore = pScore + 200;
+        // locked = true;
         checkMatch();
         console.log("flipcard called");
     };
 
     function checkMatch() {
-        let isMatch = firstCard.dataset.name === secondCard.dataset.name && firstCard.card.name === targetTicker;
-
-        isMatch ? disableCards() : unflipCards();
-        console.log(firstCard.dataset.name)
+        // console.log(firstCard.dataset.name);
+        // console.log(firstCard.data.name);
         console.log("check match called");
+        if (firstCard.dataset.name === secondCard.dataset.name && secondCard.dataset.name === targetTicker){
+            disableCards()
+        }else{
+            unflipCards()
+        };  
     };
 
     function disableCards() {
@@ -125,15 +130,22 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log(targetTicker);
     // Update Page with Ticker Target
     targetCo.innerHTML = targetTicker;
+    
     executeBtn.addEventListener("click", () => {
         targetTicker = newTarget(coTicker); // call newTarget function and update target Ticker
-        console.log(targetTicker); //testing function
+        console.log("tagetget is " + targetTicker); //testing function
         targetCo.innerHTML = targetTicker;
 
         executeButtonPressed();
     });
-    // START OF GAME FUNCTION
 
+    function executeButtonPressed() {
+        checkMatch();
+        // resetBoard();
+        shuffleDeck();
+        updateTimer();
+    };
+   
     function gameFunc(coTicker){
             
         console.log("gameFunc ran")
@@ -145,27 +157,13 @@ document.addEventListener("DOMContentLoaded", function () {
         shuffleDeck();
         generateCards();
         // flipCard();
-        unflipCards();
-        
-        
-        
-        
+        // unflipCards();  
+
         console.log(targetTicker);
 
-        function executeButtonPressed (){
-            checkMatch();
-            resetBoard();
-            shuffleDeck();
-            updateTimer();
-        };
         setInterval(countDown, 1000); // Call countdown function every second
         console.log("Game State is " + gameRun)
-        
-            
-
-            
-
-            
+     
     }; // END OF GAMEFUNC
         
         // Generate Random Time, check its not 0 (if so make it 10)
@@ -176,6 +174,8 @@ document.addEventListener("DOMContentLoaded", function () {
         counter.innerHTML = moveTime; // Update moveTime
         console.log("move time is " + moveTime);
     };
+
+   
     
     // Countdown the Timer interval
     function countDown() {
