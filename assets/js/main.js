@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (!firstCard) {
             firstCard = this;
-            return;
+            return console.log("testing card grab" + firstCard["data-name".value]);
         }
         secondCard = this;
         // locked = true;
@@ -85,18 +85,23 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     function checkMatch() {
-        
+        console.log(firstCard);
+        console.log(firstCard.dataset["name"]);
+        console.log(secondCard.dataset.name);
         // console.log(" firstCard dataset name is" + firstCard.dataset.name);
         console.log("check match called");
         // console.log(typeof(firstCard.dataset.name));
-        if (firstCard === secondCard && secondCard.dataset.name === targetTicker){
-            disableCards()
-            // shuffleDeck();
-            pScore += 200;
-            bank.innerHTML = pScore;
-            console.log("cards Match target")
+        if (firstCard.dataset.name === secondCard.dataset.name){
+            if(secondCard.dataset.name === targetTicker){
+                
+                disableCards();
+                shuffleDeck();
+                pScore += 200;
+                bank.innerHTML = pScore;
+                console.log("cards Match target")
+            };
         }else{
-            unflipCards()
+            unflipCards();
             console.log("cards dont match!")
         };  
     };
@@ -154,9 +159,9 @@ document.addEventListener("DOMContentLoaded", function () {
     function gameFunc(coTicker){
             
         console.log("gameFunc ran")
-        startGame.innerHTML = "Stop";
+        startGame.innerHTML = "Reset";
         bank.innerHTML = pScore;
-        inGame.innerText = "Double Click Stop to Exit!";
+        inGame.innerText = "Double Click to Reset";
         counter.innerHTML = moveTime;
         updateTimer();
         shuffleDeck();
