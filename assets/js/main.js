@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Test Script Running
     console.log("Hello World");
-
+    // Mention in readme all variable declarations at the start of the code is a design choice
     // Game Core Logic and Variables
     let gameRun = false;
     let cardDeck = [];
@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         secondCard = this;
         // locked = true;
-        // checkMatch();
+        checkMatch();
         console.log("flipcard called");
     };
 

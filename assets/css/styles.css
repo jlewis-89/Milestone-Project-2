@@ -167,6 +167,6 @@ td{
     backface-visibility: hidden;
 }
 
-.card:hover {
+/* .card:hover {
     transform: rotateY(180deg);
-}
+} */
