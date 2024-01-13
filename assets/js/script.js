@@ -29,7 +29,7 @@ document.getElementById("start").addEventListener("click", () => {
     generateCards();
     // setTimer();
     // setBank();
-    // setTarget();
+    getTarget();
 })
 
 // if (gameObject.playerName !=""){
@@ -43,7 +43,6 @@ fetch("./assets/cards.json")
     .then((data) => {
         cardData = [...data, ...data];
     })
-
 
 let gridContainer = document.querySelector(".gridContainer");
 let generateCards = () => {
@@ -63,12 +62,21 @@ let generateCards = () => {
 };
 
 //set value in bank to 1000
-let setBank = () => {
-    document.getElementById("bank").innerHTML(gameObject.bank);
 
-}
-//display a target
+// display a target
+let getTarget = () => {
+    let targetArr = ["TSLA", "AAPL", "MSFT"];
+    let targetIndex = Math.floor(Math.random() * targetArr.length);
+    document.getElementById("targetCo").innerHTML = targetArr[targetIndex];
+};
 
-//shuffle the deck
 
-//start timer
+// shuffle the deck
+
+// start timer
+
+// select cards
+
+// compare cards
+
+// update results
