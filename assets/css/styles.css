@@ -30,6 +30,10 @@ p {
     margin: auto;
     padding: 16px 16px 16px 16px;
 }
+
+b {
+    font-size: 32px;
+}
 .center {
     justify-content: center;
     text-align: center;
@@ -38,11 +42,10 @@ p {
 }
 
 footer {
-    position: static;
+    position: fixed;
     bottom: 10px;
     width: 100%;
     display: flex;
-    justify-content: center;
     padding: 25px 25px 25px 25px;
     margin: 20px;
 }
@@ -70,15 +73,15 @@ label {
 /* table classes  */
 
 table {
-    display: flexbox;
-    min-width: 75vw;
+    display: flex;
+    justify-content: center;
+    text-align: center;
     border:#4b4453 2px;
-    height: fit-content;
-    width: max-content;
 }
 
 th {
     font-family: Rubik Scribble, sans-serif;
+    padding: 16px;
     text-underline-position: below;
     border-inline: 2px solid white;
     
@@ -91,7 +94,7 @@ tr {
 }
 
 td{
-    padding: 2px;
+    padding: 16px;
     margin: auto;
     height: inherit;
     width: auto;
@@ -167,6 +170,6 @@ td{
     backface-visibility: hidden;
 }
 
-/* .card:hover {
+.card:hover {
     transform: rotateY(180deg);
-} */
+}

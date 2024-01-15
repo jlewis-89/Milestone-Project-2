@@ -7,7 +7,11 @@ const gameObject = {
     bank: 1000,
     playerName: "",
     playerTime: 0,
+    playerScore: 0,
     moveTime: 0,
+    boardLock: false,
+    cardOne: "",
+    cardTwo: "",
     updateBankDiv() {
         document.getElementById("bank").innerHTML = this.bank;
     }, // game object method
@@ -31,6 +35,7 @@ document.getElementById("start").addEventListener("click", () => {
     shuffleCards();
     getTarget();
     timerFunc();
+    // remove start button listener to avoid repeated clicks???
 })
 
 // Intialise Empty Card data array to recieve fetch response data
@@ -57,6 +62,7 @@ let generateCards = () => {
             <div class="back"></div>
         `;
         gridContainer.appendChild(cardElement);
+        cardElement.addEventListener("click", selectCards);
     }
 };
 
@@ -67,7 +73,7 @@ let getTarget = () => {
     document.getElementById("targetCo").innerHTML = targetArr[targetIndex];
 };
 
-// shuffle the deck
+// shuffle the deck - Code from youtube resource - See ReadMe
 let shuffleCards = () => {
     let currentIndex = cardData.length,
         randomIndex, temporaryValue;
@@ -95,11 +101,61 @@ let reduceMoveTime = () => {
 setInterval(reduceMoveTime,1000); // call function every second
 
 // select cards
+function selectCards() {
+    
+    if (gameObject.boardLock) return;
+    if (this === gameObject.cardOne){
+        alert("Cannot select same card twice, please find matching card")
+    return;
+    }
+    
+    if (!gameObject.cardOne){
+        gameObject.cardOne = this;
+        console.log({gameObject});
+    }
+    gameObject.cardTwo = this;
+    gameObject.boardLock = true;
+    
+};
+//eventlistener on mnouse over
+//add class to show behind card
+//onclick store card 1 in variable and freeze card from turning back over
+//onclick 2 freeze player from selecting any other cards
 
-// compare cards
+// compare cards on execute button
+document.getElementById("execute").addEventListener("click", () => {
+    // compareCards();
+    // timerFunc();
+    // updateResults();
+    // checkWin();
+})
 
-// update results
+let compareCards = () =>{
+    if (gameObject.cardOne != gameObject.cardTwo){
+        gameObject.boardLock = false;
+        gameObject.bank -= 100;
+        alert("Pair Does not match! Try Again");
+        return;
+    } else if(gameObject.cardOne === gameObject.cardTwo){
+        gameObject.boardLock = false;
+        gameObject.bank += 100;
+    }
+
+};
+// update results === any need for this function?
+
 
 // win loose
+let checkWin = () => {
+    if (gameObject.bank >= 2000) {
+        alert("Congratualtions you Won in " + gameObject.playerTime);
+        updateScoreboard();
+    }
+};
 
 // update scoreboard
+let updateScoreboard = () => {
+    gameObject.playerScore = gameObject.playerTime * gameObject.bank; 
+    document.getElementById("pName").appendChild(`<td>${gameObject.playerName}</td>`);
+    document.getElementById("pScore").appendChild(`<td>${gameObject.playerScore}</td>`);
+};
