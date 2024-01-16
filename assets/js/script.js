@@ -2,7 +2,7 @@
 document.getElementById("intro-btn").addEventListener("click", function () {
     document.getElementById("intro").classList.add("hide");
 });
-// Game object to hold global variable that the game will edit as needed
+// Game object to hold global variables that the game will access and update as needed
 const gameObject = {
     bank: 1000,
     playerName: "",
@@ -10,8 +10,8 @@ const gameObject = {
     playerScore: 0,
     moveTime: 0,
     boardLock: false,
-    cardOne: "",
-    cardTwo: "",
+    cardOne: null,
+    cardTwo: null,
     updateBankDiv() {
         document.getElementById("bank").innerHTML = this.bank;
     }, // game object method
@@ -113,9 +113,9 @@ function selectCards() {
         console.log({gameObject});
     }
     gameObject.cardTwo = this;
-    gameObject.boardLock = true;
-    
-};
+    gameObject.boardLock = true;    
+}; // selection function not working correctly
+
 
 
 // compare cards on execute button
@@ -129,7 +129,7 @@ document.getElementById("execute").addEventListener("click", () => {
 })
 
 let compareCards = () =>{
-    if (gameObject.cardOne !== gameObject.cardTwo){
+    if (gameObject.cardOne.dataset.name !== gameObject.cardTwo.dataset.name){
         gameObject.boardLock = false;
         gameObject.bank - 100;
         gameObject.updateBankDiv();
@@ -137,7 +137,7 @@ let compareCards = () =>{
         gameObject.cardOne = null;
         gameObject.cardTwo = null;
         return;
-    } else if(gameObject.cardOne === gameObject.cardTwo){
+    } else if (gameObject.cardOne.dataset.name === gameObject.cardTwo.dataset.name){
         gameObject.boardLock = false;
         gameObject.bank + 100;
         gameObject.updateBankDiv();
