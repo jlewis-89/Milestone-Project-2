@@ -142,7 +142,7 @@ document.addEventListener("DOMContentLoaded", function () {
     
     executeBtn.addEventListener("click", () => {
         targetTicker = newTarget(coTicker); // call newTarget function and update target Ticker
-        console.log("tagetget is " + targetTicker); //testing function
+        console.log("target is " + targetTicker); //testing function
         targetCo.innerHTML = targetTicker;
 
         executeButtonPressed();

@@ -104,10 +104,9 @@ setInterval(reduceMoveTime,1000); // call function every second
 function selectCards() {
     
     if (gameObject.boardLock) return;
-    if (this === gameObject.cardOne){
-        alert("Cannot select same card twice, please find matching card")
-    return;
-    }
+    if (this === gameObject.cardOne) return;
+    
+    this.classList.add("flipped");
     
     if (!gameObject.cardOne){
         gameObject.cardOne = this;
@@ -117,32 +116,36 @@ function selectCards() {
     gameObject.boardLock = true;
     
 };
-//eventlistener on mnouse over
-//add class to show behind card
-//onclick store card 1 in variable and freeze card from turning back over
-//onclick 2 freeze player from selecting any other cards
+
 
 // compare cards on execute button
 document.getElementById("execute").addEventListener("click", () => {
-    // compareCards();
-    // timerFunc();
-    // updateResults();
-    // checkWin();
+    compareCards();
+    timerFunc();
+    checkWin();
+    shuffleCards();
+    getTarget();
+    timerFunc();
 })
 
 let compareCards = () =>{
-    if (gameObject.cardOne != gameObject.cardTwo){
+    if (gameObject.cardOne !== gameObject.cardTwo){
         gameObject.boardLock = false;
-        gameObject.bank -= 100;
+        gameObject.bank - 100;
+        gameObject.updateBankDiv();
         alert("Pair Does not match! Try Again");
+        gameObject.cardOne = null;
+        gameObject.cardTwo = null;
         return;
     } else if(gameObject.cardOne === gameObject.cardTwo){
         gameObject.boardLock = false;
-        gameObject.bank += 100;
+        gameObject.bank + 100;
+        gameObject.updateBankDiv();
+        gameObject.cardOne = null;
+        gameObject.cardTwo = null;
     }
-
+    console.log("compareCards Function Ran");
 };
-// update results === any need for this function?
 
 
 // win loose
@@ -151,6 +154,7 @@ let checkWin = () => {
         alert("Congratualtions you Won in " + gameObject.playerTime);
         updateScoreboard();
     }
+    console.log("checkWin Function ran");
 };
 
 // update scoreboard
@@ -158,4 +162,5 @@ let updateScoreboard = () => {
     gameObject.playerScore = gameObject.playerTime * gameObject.bank; 
     document.getElementById("pName").appendChild(`<td>${gameObject.playerName}</td>`);
     document.getElementById("pScore").appendChild(`<td>${gameObject.playerScore}</td>`);
+    console.log("updateScoreboard Function ran");
 };
