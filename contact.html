@@ -9,16 +9,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <!-- jquery-->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="assets/css/styles.css">
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
-    </script>
-    <script type="text/javascript">
-        (function () {
-            emailjs.init("FkT7PPRU8f0yNFGdI");
-        })();
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>(function () {emailjs.init("FkT7PPRU8f0yNFGdI");})();</script>
 </head>
 
 <body>
@@ -41,19 +35,19 @@
         </nav>
     </header>
     <section class="center">
-        <h2>We are Always Interested in your feedback!</h2>
+        <h1>We are Always Interested in your feedback!</h1>
         <p>If you have found this game fun and educational or have an idea to improve it please let us know in the
             comments below</p>
         <p>If you have found a bug Please report it in the comments below so the team can fix it.</p>
         <form onsubmit="return sendMail(this);" class="form-control">
             <label for="name" class="form-label">Name</label>
             <input type="text" name="name" id="name" placeholder="Your Name" class="form-control" autocomplete="name"
-                required />
+                required>
             <label for="formEmail" class="form-label">Email:</label>
             <input id="formEmail" class="form-control" type="email" name="emailaddress" placeholder="email@example.com"
-                autocomplete="email" required />
+                autocomplete="email" required>
             <label for="formComment">Comments:</label>
-            <textarea id="formComment" class="form-control" type="text" name="comments"
+            <textarea id="formComment" class="form-control" name="comments"
                 placeholder="Comment Here"></textarea>
             <button type="submit" class="btn btn-primary" onclick="alert('Thanks for your response')">Submit</button>
         </form>

@@ -116,8 +116,6 @@ function selectCards() {
     gameObject.boardLock = true;    
 }; // selection function not working correctly
 
-
-
 // compare cards on execute button
 document.getElementById("execute").addEventListener("click", () => {
     compareCards();
@@ -131,7 +129,7 @@ document.getElementById("execute").addEventListener("click", () => {
 let compareCards = () =>{
     if (gameObject.cardOne.dataset.name !== gameObject.cardTwo.dataset.name){
         gameObject.boardLock = false;
-        gameObject.bank - 100;
+        gameObject.bank -= 100;
         gameObject.updateBankDiv();
         alert("Pair Does not match! Try Again");
         gameObject.cardOne = null;
@@ -139,7 +137,7 @@ let compareCards = () =>{
         return;
     } else if (gameObject.cardOne.dataset.name === gameObject.cardTwo.dataset.name){
         gameObject.boardLock = false;
-        gameObject.bank + 100;
+        gameObject.bank += 100;
         gameObject.updateBankDiv();
         gameObject.cardOne = null;
         gameObject.cardTwo = null;
