@@ -9,6 +9,7 @@ const gameObject = {
     playerTime: 0,
     playerScore: 0,
     moveTime: 0,
+    targetCard:"",
     boardLock: false,
     cardOne: null,
     cardTwo: null,
@@ -29,7 +30,7 @@ const gameObject = {
 //click startbutton
 document.getElementById("start").addEventListener("click", () => {
     gameObject.updateBankDiv();
-    gameObject.getPlayerName();
+    gameObject.getPlayerName(); // uncomment after tesing
     gameObject.startGameTime();
     generateCards();
     shuffleCards();
@@ -71,6 +72,7 @@ let getTarget = () => {
     let targetArr = ["TSLA", "AAPL", "MSFT"];
     let targetIndex = Math.floor(Math.random() * targetArr.length);
     document.getElementById("targetCo").innerHTML = targetArr[targetIndex];
+    gameObject.targetCard = targetArr[targetIndex];
 };
 
 // shuffle the deck - Code from youtube resource - See ReadMe
@@ -102,7 +104,6 @@ setInterval(reduceMoveTime,1000); // call function every second
 
 // select cards
 function selectCards() {
-    
     if (gameObject.boardLock) return;
     if (this === gameObject.cardOne) return;
     
@@ -111,14 +112,16 @@ function selectCards() {
     if (!gameObject.cardOne){
         gameObject.cardOne = this;
         console.log({gameObject});
+        return;
     }
     gameObject.cardTwo = this;
     gameObject.boardLock = true;    
-}; // selection function not working correctly
+};
 
 // compare cards on execute button
 document.getElementById("execute").addEventListener("click", () => {
-    compareCards();
+    
+    gameObject.moveTime === 0 ? (gameObject.bank -= 100, gameObject.updateBankDiv()) : compareCards();
     timerFunc();
     checkWin();
     shuffleCards();
@@ -127,29 +130,32 @@ document.getElementById("execute").addEventListener("click", () => {
 })
 
 let compareCards = () =>{
-    if (gameObject.cardOne.dataset.name !== gameObject.cardTwo.dataset.name){
-        gameObject.boardLock = false;
+    if (gameObject.cardOne.dataset.name !== gameObject.cardTwo.dataset.name || gameObject.cardTwo.dataset.name != gameObject.targetCard){
         gameObject.bank -= 100;
         gameObject.updateBankDiv();
-        alert("Pair Does not match! Try Again");
+        alert("Try Again");
+        gameObject.cardOne.classList.remove("flipped");
+        gameObject.cardTwo.classList.remove("flipped");
         gameObject.cardOne = null;
         gameObject.cardTwo = null;
-        return;
-    } else if (gameObject.cardOne.dataset.name === gameObject.cardTwo.dataset.name){
         gameObject.boardLock = false;
+    } else if (gameObject.cardOne.dataset.name === gameObject.cardTwo.dataset.name && gameObject.cardTwo.dataset.name == gameObject.targetCard){
         gameObject.bank += 100;
         gameObject.updateBankDiv();
+        gameObject.cardOne.classList.remove("flipped");
+        gameObject.cardTwo.classList.remove("flipped");
         gameObject.cardOne = null;
         gameObject.cardTwo = null;
+        gameObject.boardLock = false;
     }
     console.log("compareCards Function Ran");
+    shuffleCards();
 };
-
 
 // win loose
 let checkWin = () => {
     if (gameObject.bank >= 2000) {
-        alert("Congratualtions you Won in " + gameObject.playerTime);
+        alert("Congratualtions you Won in " + gameObject.playerTime + " seconds");
         updateScoreboard();
     }
     console.log("checkWin Function ran");
@@ -158,7 +164,8 @@ let checkWin = () => {
 // update scoreboard
 let updateScoreboard = () => {
     gameObject.playerScore = gameObject.playerTime * gameObject.bank; 
-    document.getElementById("pName").appendChild(`<td>${gameObject.playerName}</td>`);
-    document.getElementById("pScore").appendChild(`<td>${gameObject.playerScore}</td>`);
+    document.getElementById("pName").innerHTML = `<td>${gameObject.playerName}</td>`;
+    document.getElementById("pScore").innerHTML = `<td>${gameObject.playerScore}</td>`;
     console.log("updateScoreboard Function ran");
+    sessionStorage.setItem(gameObject.playerName, gameObject.playerScore); // Feature to store highscores in window session only
 };
