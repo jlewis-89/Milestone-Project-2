@@ -115,7 +115,7 @@ function selectCards() {
         return;
     }
     gameObject.cardTwo = this;
-    gameObject.boardLock = true;    
+    gameObject.boardLock = true;  
 };
 
 // compare cards on execute button
