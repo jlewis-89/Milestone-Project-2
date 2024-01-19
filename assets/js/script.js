@@ -24,13 +24,13 @@ const gameObject = {
     getPlayerName() {
         this.playerName = prompt("Enter Player Name");
         console.log("player name set to " + this.playerName);
-    }
+    },
 }
 
 //click startbutton
 document.getElementById("start").addEventListener("click", () => {
     gameObject.updateBankDiv();
-    gameObject.getPlayerName(); // uncomment after tesing
+    gameObject.getPlayerName();
     gameObject.startGameTime();
     generateCards();
     shuffleCards();
@@ -148,7 +148,6 @@ let compareCards = () =>{
         gameObject.cardTwo = null;
         gameObject.boardLock = false;
     }
-    console.log("compareCards Function Ran");
     shuffleCards();
 };
 
@@ -158,7 +157,6 @@ let checkWin = () => {
         alert("Congratualtions you Won in " + gameObject.playerTime + " seconds");
         updateScoreboard();
     }
-    console.log("checkWin Function ran");
 };
 
 // update scoreboard
@@ -166,6 +164,7 @@ let updateScoreboard = () => {
     gameObject.playerScore = gameObject.playerTime * gameObject.bank; 
     document.getElementById("pName").innerHTML = `<td>${gameObject.playerName}</td>`;
     document.getElementById("pScore").innerHTML = `<td>${gameObject.playerScore}</td>`;
+    resetGame();
     console.log("updateScoreboard Function ran");
     sessionStorage.setItem(gameObject.playerName, gameObject.playerScore); // Feature to store highscores in window session only
 };

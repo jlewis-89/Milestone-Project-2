@@ -32,10 +32,6 @@ document.addEventListener("DOMContentLoaded", function () {
         .then((response) => response.json())
         .then((data) => {
             cardDeck = [...data, ...data];
-            console.log("fetch read json doc");
-            console.log(typeof(data));
-            console.log(data);
-            console.log(cardDeck[0].name);
         });
 
     function shuffleDeck() {
@@ -64,7 +60,6 @@ document.addEventListener("DOMContentLoaded", function () {
             `;
             gridContainer.appendChild(cardElement);
             cardElement.addEventListener("click", flipCard);
-            console.log("cards generated");
         };
     };
 
@@ -76,12 +71,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (!firstCard) {
             firstCard = this;
-            return console.log("testing card grab" + firstCard["data-name".value]);
+            return;
         }
         secondCard = this;
         // locked = true;
         checkMatch();
-        console.log("flipcard called");
     };
 
     function checkMatch() {
@@ -93,16 +87,13 @@ document.addEventListener("DOMContentLoaded", function () {
         // console.log(typeof(firstCard.dataset.name));
         if (firstCard.dataset.name === secondCard.dataset.name){
             if(secondCard.dataset.name === targetTicker){
-                
                 disableCards();
                 shuffleDeck();
                 pScore += 200;
                 bank.innerHTML = pScore;
-                console.log("cards Match target")
             };
         }else{
             unflipCards();
-            console.log("cards dont match!")
         };  
     };
 
@@ -110,7 +101,6 @@ document.addEventListener("DOMContentLoaded", function () {
         firstCard.removeEventListener("click", flipCard);
         secondCard.removeEventListener("click", flipCard);
         resetBoard();
-        console.log("cards removed");
     };
 
     function unflipCards() {
@@ -119,14 +109,12 @@ document.addEventListener("DOMContentLoaded", function () {
             secondCard.classList.remove("flipped");
             resetBoard();
         }, 500);
-        console.log("unflip cards");
     };
 
     function resetBoard() {
         firstCard = null;
         secondCard = null;
         locked = false;
-        console.log("reset board called");
     };
 // Moved Out of Game Function
     // Target Generator
@@ -135,7 +123,6 @@ document.addEventListener("DOMContentLoaded", function () {
         return coTicker[targetIndex];
     }
     let targetTicker = newTarget(coTicker);
-    console.log(targetTicker);
 
     // Update Page with Ticker Target
     targetCo.innerHTML = targetTicker;
@@ -144,15 +131,12 @@ document.addEventListener("DOMContentLoaded", function () {
         targetTicker = newTarget(coTicker); // call newTarget function and update target Ticker
         console.log("target is " + targetTicker); //testing function
         targetCo.innerHTML = targetTicker;
-
         executeButtonPressed();
     });
 
     function executeButtonPressed() {
-        
         checkMatch();
         // resetBoard();
-        
         updateTimer();
     };
    
@@ -168,12 +152,7 @@ document.addEventListener("DOMContentLoaded", function () {
         generateCards();
         // flipCard();
         // unflipCards();  
-
-        console.log(targetTicker);
-
-        setInterval(countDown, 1000); // Call countdown function every second
-        console.log("Game State is " + gameRun)
-     
+        setInterval(countDown, 1000); // Call countdown function every second     
     }; 
         
         // Generate Random Time, check its not 0 (if so make it 10)
@@ -182,7 +161,6 @@ document.addEventListener("DOMContentLoaded", function () {
             moveTime = 15;
         } else { moveTime = Math.floor(Math.random() * 100); }; // Prevent moveTime = 0
         counter.innerHTML = moveTime; // Update moveTime
-        console.log("move time is " + moveTime);
     };
 
    
@@ -191,7 +169,6 @@ document.addEventListener("DOMContentLoaded", function () {
     function countDown() {
         moveTime = typeof moveTime === 'number' ? moveTime : 0; //Check moveTime initailised at a number to fix NaN bug
         moveTime = Math.max(0, moveTime - 1); //minus 1 from moveTime up to a max of 0
-        console.log("countDown called");
         counter.innerHTML = moveTime; // Update moveTime
     };
 
@@ -200,7 +177,6 @@ document.addEventListener("DOMContentLoaded", function () {
     let startGameHandler = () => {
         gameRun = !gameRun;
         gameFunc(coTicker);
-        console.log("startgame Event Clicked " + gameRun);
         setTimeout(toggleTest, 1500);  // test gameRun state every 1500ms
     };
 
@@ -214,8 +190,6 @@ document.addEventListener("DOMContentLoaded", function () {
         // inGame.innerText = "";
         // counter.innerHTML = "00s";
         this.location.reload()
-        
-        console.log("toggle func triggered");
         };
     };
 
