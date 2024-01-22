@@ -60,7 +60,7 @@ fetch("./assets/cards.json")
     .then((data) => {
         cardData = [...data, ...data];
     })
-
+// Generate card elements
 let gridContainer = document.querySelector(".gridContainer");
 let generateCards = () => {
     console.log(cardData);
@@ -87,7 +87,7 @@ let getTarget = () => {
     gameObject.targetCard = targetArr[targetIndex];
 };
 
-// shuffle the deck - Code from youtube resource - See ReadMe
+// shuffle the deck - Code from youtube resource amended to integrate - See ReadMe
 let shuffleCards = () => {
     let currentIndex = cardData.length,
         randomIndex, temporaryValue;
@@ -185,3 +185,8 @@ let updateScoreboard = () => {
     resetGame();
     sessionStorage.setItem(gameObject.playerName, gameObject.playerScore); // Feature to store highscores in window session only
 };
+
+// Refresh page after game play finished
+let resetGame = () => {
+    this.location.reload();
+}

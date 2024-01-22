@@ -118,6 +118,7 @@ td{
     display: none;
 }
 
+/* Taken from YouTube Resource and edited for project needs */
 .gridContainer{
     display: grid;
     justify-content: center;
@@ -170,7 +171,8 @@ td{
     background-size: cover;
     backface-visibility: hidden;
 }
-
+ /* End of YouTube Resource Styles */
+ 
 .card:hover {
     transform: rotateY(180deg);
 }
