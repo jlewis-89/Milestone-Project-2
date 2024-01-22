@@ -1,8 +1,7 @@
 // ------------- Fixes and Bugs -------------- 
 // Shuffle Cards nedds to update card postions
 // Pressing execute with no cards selected should return an error to the user not the console - error handling?
-// Cannot unselect wrongly selected card
-//
+//  Use JSHint.com to validate JS, select config for ES6 before running tests
 //
 // -------------------------------------------
 
@@ -107,7 +106,7 @@ let timerFunc = () => {
 };
 
 let reduceMoveTime = () => {
-    gameObject.moveTime === typeof "number" ? gameObject.moveTime : 0; // check is a number
+   // gameObject.moveTime === typeof "number" ? gameObject.moveTime : 0; // check is a number ---------- Discuss with Dave
     gameObject.moveTime = Math.max(0, gameObject.moveTime -1); // set limit to avoid negative numbers and reduce by 1
     document.getElementById("counter").innerHTML = gameObject.moveTime; // update HTML
     if (gameObject.gameStarted == true && gameObject.moveTime === 0){
@@ -116,22 +115,31 @@ let reduceMoveTime = () => {
         checkWin();
     };
 };
-setInterval(reduceMoveTime,1000); // call function every second
+// setInterval(reduceMoveTime,1000); // call function every second
 
 // select cards
 function selectCards() {
-    if (gameObject.boardLock) return;
-    if (this === gameObject.cardOne) return;
-    
-    this.classList.add("flipped");
-    
-    if (!gameObject.cardOne){
+    if(this.classList.contains("flipped")){
+        this.classList.remove("flipped");
+        if(this === gameObject.cardOne){
+            gameObject.cardOne = null;
+        }else{
+            gameObject.cardTwo = null;
+        }
+        gameObject.boardLock = false;
+    }else{
+        this.classList.add("flipped");
+        
+        if (gameObject.boardLock) return;
+        if (this === gameObject.cardOne) return;   
+        if (!gameObject.cardOne){
         gameObject.cardOne = this;
         console.log({gameObject});
         return;
-    }
-    gameObject.cardTwo = this;
-    gameObject.boardLock = true;  
+        }
+        gameObject.cardTwo = this;
+        gameObject.boardLock = true;
+    }  
 };
 
 // compare cards on execute button

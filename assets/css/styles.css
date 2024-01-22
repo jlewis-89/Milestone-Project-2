@@ -172,10 +172,6 @@ td{
     backface-visibility: hidden;
 }
  /* End of YouTube Resource Styles */
- 
-.card:hover {
-    transform: rotateY(180deg);
-}
 
 /* responsive design  */
 

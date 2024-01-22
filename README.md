@@ -53,6 +53,10 @@ The timer is present and centeral to the page to ensure it is always visible, th
 ### JS Validator
 
 ### User Testing / Alpha Testing
+* As part of user testing the start button was highlighted as a less obvious to start the game, I have placead press start to begin in the instruction.
+
+* User testing noted that the bank was highlighted as a link this has been removed, as part of the class it is still highlighted as the cursor goes over it, but does not change the cursor to highlight a clickable link.
+* 
 
 ### JEST Test Suite
 
