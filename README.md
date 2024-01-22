@@ -108,3 +108,4 @@ Card Game [https://www.youtube.com/watch?v=xWdkt6KSirw]
 This work would not have been possible with out the assitance of:
 * Code Institute and City of Bristol College as a joint Content & Training Provider
 * My Mentor Rohit Sharma
+* My friend Dave J Horrocks who without his advice this game would likely not work

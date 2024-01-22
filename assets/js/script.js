@@ -1,5 +1,7 @@
 // ------------- Fixes and Bugs -------------- 
 // Shuffle Cards nedds to update card postions
+// Edit scoring system
+// board lock?
 // Pressing execute with no cards selected should return an error to the user not the console - error handling?
 //  Use JSHint.com to validate JS, select config for ES6 before running tests
 //
@@ -41,14 +43,13 @@ document.getElementById("start").addEventListener("click", () => {
     gameObject.updateBankDiv();
     gameObject.getPlayerName();
     gameObject.startGameTime();
-    // shuffleCards(); Uncomment after testing
+    shuffleCards(); // Uncomment after testing
     generateCards();
-    shuffleCards(); // remove after testing
     getTarget();
     timerFunc();
     gameObject.gameStarted = true;
     // remove start button listener to avoid repeated clicks???
-})
+}, {once: true});
 
 // Intialise Empty Card data array to recieve fetch response data
 let cardData = [];
@@ -63,7 +64,7 @@ fetch("./assets/cards.json")
 let gridContainer = document.querySelector(".gridContainer");
 let generateCards = () => {
     console.log(cardData);
-    for (card of cardData) {
+    for (let card of cardData) {
         let cardElement = document.createElement("div");
         cardElement.classList.add("card");
         cardElement.setAttribute("data-name", card.name);
@@ -97,6 +98,7 @@ let shuffleCards = () => {
         cardData[currentIndex] = cardData[randomIndex];
         cardData[randomIndex] = temporaryValue;
     };
+    // generateCards();
 }; // End of Code Re-use from YouTube Resource
 
 // start timer
@@ -119,6 +121,7 @@ let reduceMoveTime = () => {
 
 // select cards
 function selectCards() {
+    
     if(this.classList.contains("flipped")){
         this.classList.remove("flipped");
         if(this === gameObject.cardOne){
@@ -128,9 +131,9 @@ function selectCards() {
         }
         gameObject.boardLock = false;
     }else{
+        if (gameObject.boardLock) return;
         this.classList.add("flipped");
         
-        if (gameObject.boardLock) return;
         if (this === gameObject.cardOne) return;   
         if (!gameObject.cardOne){
         gameObject.cardOne = this;
@@ -139,7 +142,7 @@ function selectCards() {
         }
         gameObject.cardTwo = this;
         gameObject.boardLock = true;
-    }  
+    }
 };
 
 // compare cards on execute button
@@ -171,7 +174,6 @@ let compareCards = () =>{
         gameObject.cardTwo = null;
         gameObject.boardLock = false;
     }
-    shuffleCards();
 };
 
 // win loose

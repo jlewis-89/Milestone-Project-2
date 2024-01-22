@@ -41,7 +41,7 @@ b {
 }
 
 footer {
-    position: fixed;
+    position: static;
     bottom: 10px;
     width: 100%;
     display: flex;
