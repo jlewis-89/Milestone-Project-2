@@ -1,9 +1,19 @@
+// ------------- Fixes and Bugs -------------- 
+// Shuffle Cards nedds to update card postions
+// Pressing execute with no cards selected should return an error to the user not the console - error handling?
+// Cannot unselect wrongly selected card
+//
+//
+// -------------------------------------------
+
+
 // UI feature to hide Intro
 document.getElementById("intro-btn").addEventListener("click", function () {
     document.getElementById("intro").classList.add("hide");
 });
 // Game object to hold global variables that the game will access and update as needed
 const gameObject = {
+    gameStarted: false,
     bank: 1000,
     playerName: "",
     playerTime: 0,
@@ -32,16 +42,18 @@ document.getElementById("start").addEventListener("click", () => {
     gameObject.updateBankDiv();
     gameObject.getPlayerName();
     gameObject.startGameTime();
+    // shuffleCards(); Uncomment after testing
     generateCards();
-    shuffleCards();
+    shuffleCards(); // remove after testing
     getTarget();
     timerFunc();
+    gameObject.gameStarted = true;
     // remove start button listener to avoid repeated clicks???
 })
 
 // Intialise Empty Card data array to recieve fetch response data
 let cardData = [];
-
+// Code re-used from youtube resource see ReadMe
 // fetch data from json file
 fetch("./assets/cards.json")
     .then((response) => response.json())
@@ -65,7 +77,7 @@ let generateCards = () => {
         gridContainer.appendChild(cardElement);
         cardElement.addEventListener("click", selectCards);
     }
-};
+}; // End of Code Reuse from YouTube Resource
 
 // display a target
 let getTarget = () => {
@@ -86,7 +98,7 @@ let shuffleCards = () => {
         cardData[currentIndex] = cardData[randomIndex];
         cardData[randomIndex] = temporaryValue;
     };
-};
+}; // End of Code Re-use from YouTube Resource
 
 // start timer
 let timerFunc = () => {
@@ -98,8 +110,12 @@ let reduceMoveTime = () => {
     gameObject.moveTime === typeof "number" ? gameObject.moveTime : 0; // check is a number
     gameObject.moveTime = Math.max(0, gameObject.moveTime -1); // set limit to avoid negative numbers and reduce by 1
     document.getElementById("counter").innerHTML = gameObject.moveTime; // update HTML
+    if (gameObject.gameStarted == true && gameObject.moveTime === 0){
+        gameObject.bank -= 100;
+        gameObject.updateBankDiv();
+        checkWin();
+    };
 };
-
 setInterval(reduceMoveTime,1000); // call function every second
 
 // select cards
@@ -120,8 +136,7 @@ function selectCards() {
 
 // compare cards on execute button
 document.getElementById("execute").addEventListener("click", () => {
-    
-    gameObject.moveTime === 0 ? (gameObject.bank -= 100, gameObject.updateBankDiv()) : compareCards();
+    compareCards();
     timerFunc();
     checkWin();
     shuffleCards();
@@ -156,6 +171,9 @@ let checkWin = () => {
     if (gameObject.bank >= 2000) {
         alert("Congratualtions you Won in " + gameObject.playerTime + " seconds");
         updateScoreboard();
+    }else if (gameObject.bank === 0){
+        alert("Game Over, Better Luck Next Time " + gameObject.playerName + "!")
+        resetGame();
     }
 };
 
