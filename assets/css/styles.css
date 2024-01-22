@@ -122,6 +122,8 @@ td{
     display: grid;
     justify-content: center;
     grid-gap: 24px;
+    /* grid-template-columns: minmax(5,5);
+    grid-template-rows: minmax(2,2); */
     grid-template-columns: repeat(5, 140px);
     grid-template-rows: repeat(2, 210px);
 }
@@ -171,4 +173,91 @@ td{
 
 .card:hover {
     transform: rotateY(180deg);
+}
+
+/* responsive design  */
+
+@media (min-width:0px) {
+    .gridContainer {
+            display: grid;
+            justify-content: center;
+            grid-gap: 24px;
+            grid-template-columns: repeat(5, 56px);
+            grid-template-rows: repeat(2, 80px);
+        }
+    
+    .card {
+            height: 80px;
+            width: 56px;
+            border-radius: 16px;
+            background-color: rgb(225, 216, 216);
+            position: relative;
+            transform-style: preserve-3d;
+            transition: all 0.3s ease-in-out;
+        }
+    
+}
+
+/* // Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+    .gridContainer {
+            display: grid;
+            justify-content: center;
+            grid-gap: 24px;
+            grid-template-columns: repeat(5, 89px);
+            grid-template-rows: repeat(2, 134px);
+        }
+    
+    .card {
+            height: 134px;
+            width: 89px;
+            border-radius: 16px;
+            background-color: rgb(225, 216, 216);
+            position: relative;
+            transform-style: preserve-3d;
+            transition: all 0.3s ease-in-out;
+        }
+}
+
+/* // Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    .gridContainer {
+        display: grid;
+        justify-content: center;
+        grid-gap: 24px;
+        grid-template-columns: repeat(5, 112px);
+        grid-template-rows: repeat(2, 168px);
+    }
+
+    .card {
+        height: 168px;
+        width: 112px;
+        border-radius: 16px;
+        background-color: rgb(225, 216, 216);
+        position: relative;
+        transform-style: preserve-3d;
+        transition: all 0.3s ease-in-out;
+    }
+}
+
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .gridContainer {
+            display: grid;
+            justify-content: center;
+            grid-gap: 24px;
+            /* grid-template-columns: minmax(5,5);
+        grid-template-rows: minmax(2,2); */
+            grid-template-columns: repeat(5, 140px);
+            grid-template-rows: repeat(2, 210px);
+        }
+    .card {
+            height: 210px;
+            width: 140px;
+            border-radius: 16px;
+            background-color: rgb(225, 216, 216);
+            position: relative;
+            transform-style: preserve-3d;
+            transition: all 0.3s ease-in-out;
+        }
 }

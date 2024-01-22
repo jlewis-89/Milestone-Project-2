@@ -165,6 +165,5 @@ let updateScoreboard = () => {
     document.getElementById("pName").innerHTML = `<td>${gameObject.playerName}</td>`;
     document.getElementById("pScore").innerHTML = `<td>${gameObject.playerScore}</td>`;
     resetGame();
-    console.log("updateScoreboard Function ran");
     sessionStorage.setItem(gameObject.playerName, gameObject.playerScore); // Feature to store highscores in window session only
 };
