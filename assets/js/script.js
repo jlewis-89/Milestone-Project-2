@@ -184,7 +184,7 @@ let checkWin = () => {
 };
 // update scoreboard
 let updateScoreboard = () => {
-    gameObject.playerScore = gameObject.bank / gameObject.playerTime; 
+    gameObject.playerScore = (gameObject.bank / gameObject.playerTime)^2; 
     document.getElementById("pName").innerHTML = `<td>${gameObject.playerName}</td>`;
     document.getElementById("pScore").innerHTML = `<td>${gameObject.playerScore}</td>`;
     // resetGame()
