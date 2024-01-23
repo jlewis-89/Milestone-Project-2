@@ -4,11 +4,18 @@
 html {
     max-width: 100%;
     max-height: 100%;
-    display: flexbox;
 }
 
 h1, h2, h3 {
     font-family: Rubik Scribble, sans-serif;
+    justify-content: center;
+    margin: auto;
+}
+
+nav {
+    font-weight: 800;
+    font-size: x-large;
+    justify-content: center;
 }
 
 body {
@@ -23,11 +30,7 @@ div {
 
 button {
     margin: 5px;
-}
-
-p {
-    margin: auto;
-    padding: 16px 16px 16px 16px;
+    color:  rgb(169, 241, 169);
 }
 
 b {
@@ -37,7 +40,7 @@ b {
     justify-content: center;
     text-align: center;
     margin: auto;
-    padding: 10vh 25vw 10vh 25vw;
+    padding: 0vh 25vw 0vh 25vw;
 }
 
 footer {
@@ -258,4 +261,7 @@ td{
             transform-style: preserve-3d;
             transition: all 0.3s ease-in-out;
         }
+}
+.card:hover {
+    transform: rotateY(180deg);
 }

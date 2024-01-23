@@ -9,6 +9,9 @@
 document.getElementById("intro-btn").addEventListener("click", function () {
     document.getElementById("intro").classList.add("hide");
 });
+document.getElementById("showIntro").addEventListener("click", function() {
+    document.getElementById("intro").classList.remove("hide");
+});
 // Game object to hold global variables that the game will access and update as needed
 const gameObject = {
     gameStarted: false,
