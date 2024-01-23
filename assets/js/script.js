@@ -9,6 +9,7 @@
 document.getElementById("intro-btn").addEventListener("click", function () {
     document.getElementById("intro").classList.add("hide");
 });
+// Bring back intro list if instructions link clicked
 document.getElementById("showIntro").addEventListener("click", function() {
     document.getElementById("intro").classList.remove("hide");
 });
@@ -111,7 +112,7 @@ let reduceMoveTime = () => {
         checkWin();
     };
 };
-setInterval(reduceMoveTime,1000); // call function every second
+let gameInterval = setInterval(reduceMoveTime,1000); // call function every second
 // select cards
 function selectCards() {
     if(this.classList.contains("flipped")){
@@ -177,6 +178,7 @@ let checkWin = () => {
     if (gameObject.bank >= 2000) {
         alert("Congratualtions you Won in " + gameObject.playerTime + " seconds");
         updateScoreboard();
+        clearInterval(gameInterval);
     }else if (gameObject.bank === 0){
         alert("Game Over, Better Luck Next Time " + gameObject.playerName + "!")
         resetGame();
@@ -184,7 +186,7 @@ let checkWin = () => {
 };
 // update scoreboard
 let updateScoreboard = () => {
-    gameObject.playerScore = (gameObject.bank / gameObject.playerTime)^2; 
+    gameObject.playerScore = gameObject.bank / gameObject.playerTime; 
     document.getElementById("pName").innerHTML = `<td>${gameObject.playerName}</td>`;
     document.getElementById("pScore").innerHTML = `<td>${gameObject.playerScore}</td>`;
     // resetGame()

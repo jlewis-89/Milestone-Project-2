@@ -72,6 +72,11 @@ label {
     text-align: center;
 }
 
+#targetCo {
+    font-family: sans-serif;
+    font-weight: 800;
+}
+
 /* table classes  */
 
 table {
