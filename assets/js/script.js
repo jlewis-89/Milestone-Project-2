@@ -70,11 +70,12 @@ let generateCards = () => {
         cardElement.setAttribute("data-name", card.name);
         cardElement.innerHTML = `
         <div class="front">
-            <img class="front-image" src=${card.image} />
+            <img class="front-image" alt="${card.name}" src=${card.image} />
             </div>
             <div class="back"></div>
         `;
         gridContainer.appendChild(cardElement);
+        
         cardElement.addEventListener("click", selectCards);
     }
 }; // End of Code Reuse from YouTube Resource
@@ -98,7 +99,6 @@ let shuffleCards = () => {
         cardData[currentIndex] = cardData[randomIndex];
         cardData[randomIndex] = temporaryValue;
     };
-    // generateCards();
 }; // End of Code Re-use from YouTube Resource
 
 // start timer
@@ -117,11 +117,10 @@ let reduceMoveTime = () => {
         checkWin();
     };
 };
-// setInterval(reduceMoveTime,1000); // call function every second
+setInterval(reduceMoveTime,1000); // call function every second
 
 // select cards
 function selectCards() {
-    
     if(this.classList.contains("flipped")){
         this.classList.remove("flipped");
         if(this === gameObject.cardOne){
@@ -148,9 +147,9 @@ function selectCards() {
 // compare cards on execute button
 document.getElementById("execute").addEventListener("click", () => {
     compareCards();
-    timerFunc();
     checkWin();
     shuffleCards();
+    // generateCards();
     getTarget();
     timerFunc();
 })
@@ -192,7 +191,7 @@ let updateScoreboard = () => {
     gameObject.playerScore = gameObject.playerTime * gameObject.bank; 
     document.getElementById("pName").innerHTML = `<td>${gameObject.playerName}</td>`;
     document.getElementById("pScore").innerHTML = `<td>${gameObject.playerScore}</td>`;
-    resetGame();
+    // resetGame()
     sessionStorage.setItem(gameObject.playerName, gameObject.playerScore); // Feature to store highscores in window session only
 };
 
