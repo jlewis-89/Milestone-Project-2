@@ -1,7 +1,6 @@
-# Milestone Project 2
-## Interactive Frontend Development
-## FinTech Card Game
-// Mockups
+# Milestone Project 2 - Interactive Frontend Development
+## FinTech Card Game Project
+![Mockup](/assets/images/smartmockups_lrrt0ndi.jpg)
 // Deployed Link
 // Repo Link
 
