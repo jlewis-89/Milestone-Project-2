@@ -1,10 +1,53 @@
 # Milestone Project 2 - Interactive Frontend Development
 ## FinTech Card Game Project
-![Mockup](/assets/images/smartmockups_lrrt0ndi.jpg)
+![Mockup](/assets/testing/smartmockups_lrrt0ndi.jpg)
 // Deployed Link
 // Repo Link
 
 # Table of Contents
+* Purpose
+  - Project Goals
+  - User Goals
+  - Developer Goals
+* Technologies Used
+* Tools
+* UX
+  - User Stories
+*UI
+  - Design
+  - Wireframe
+  - Colour Scheme
+  - Font
+  - Card Pattern Design
+* Features
+ - Features
+ - Features not yet implemented
+* Testing
+  - HTML
+  - CSS
+  - JS
+  - Email JS API
+  - Alpha Testing
+  - User Stories Testing
+  - Jest Test Suite
+* API's
+  - Email JS
+  - Fetch API
+* Bugs & Fixes
+  - Remaining Bugs
+* Deployment
+  - GitHub Pages
+  - Forking the GitHub Repository
+  - Making a Local Clone
+* Credit
+  - Resources
+  - Image Assets
+  - Code Re-Use
+* Acknowledgments
+* Licensing
+* Project Status
+
+
 
 ## Purpose
 The purpose of this website is to create a card game based on fast paced execution, to find matching pairs based on a randomly selected ticker, find and match a pair of company logo's based on the ticker shown and execute the trade within the timer window. The timer will randomly generate how long the player has to find the pair, to keep the game chanllenging. Each pair successfully found will contribute to the players score, each missed pair will reduce the players score, if the timer hits zero the players bank will be reduced. The game is designed to create pressure on the player to stay focused on the cards and not distracted by the timer.
@@ -33,6 +76,9 @@ The website was built with the intention of creating both an enjoyable and yet c
 ## Tools 
 * Moqups
 * Visual Studio Code
+* WebAIM.org
+* W3 Online Validators HTML/CSS
+* JSHint.com JavaScript Validator
 
 ## UX
 ### User Stories
@@ -46,13 +92,13 @@ The website was built with the intention of creating both an enjoyable and yet c
 * As a user of this website I would like a pleaseant visual experience without colour or sound overload
 
 ### Wireframe
-![Wireframe Using Mockup](/assets/images/Wireframe-moqups.png)
+![Wireframe Using Mockup](/assets/testing/Wireframe-moqups.png)
 
 ### Colour Scheme
 The Background Colour of #4B4453 has been used to create contrast between the navbar in dark theme and the text in #fffff, darker themes are not only more energy effcient when playinmg on screens, but also less harsh on the eyes over time and reduce screen and eye fatigue.
 
 The contrast has been checked via webAIM.org and has a contrast ratio of 9.32:1
-
+![webAIM Contrast Results](<assets/testing/Contrast Checker WebAIM.png>)
 
 #### Font
 A Playful and creative font was used to highlight the nature of the website in headings and labels the font chosen was
@@ -69,33 +115,65 @@ The website presents with very little on the page to start with only the instruc
 The timer is centeral to the page to ensure it is always visible, the time is presented in bold with an increased font weight to the text around it to ensure its visibility.
 
 ## Features
+### Features
+The webpage features a Bootstrap 5 navbar and buttons
 
-## Feautures not Implemented
+### Feautures not yet Implemented
 Ideas that where initially considered and where either not implemented due to technical restrictions, time or where considered off the critical path for the project but may always be implemented later.
-*Link card data to yahoo finance API to update cards and logos / tickers with the most valuable tech stocks at the point of play.
+* Link card data to yahoo finance API to update cards and logos / tickers with the most valuable tech stocks at the point of play.
 * Highscore board storage of data / information to retain highscore from players, this could be done in local / session or cookie storage but would not have fully utilised the feature as it would not enable different users on different machines to compete.
 * Adding and removing CSS when the player runs out of time to highlight the bank being reduced and create a sense of panic.
 * Implementing modals instead of alerts, the benefit of alert is that it pasues the running functions, however time did not allow me to add modals to replace the alerts used in game.
 * With more time I would have liked to add more animations and effects to enhance the UX
 
 ## Testing
+Automated Testing via online validators has been performed to ensure the code comlies with current industry standards and expectations, the results of which have been compiled below.
+
 ### HTML Validator
+[W3 HTML Validator](https://validator.w3.org/)
+![indexHTML Validation](<assets/testing/indexhtml validator.png>)
+Minor changes where made to correct the errors highlighted above and the code was re-tested.
+
+![indexHTML Pass Validation](<assets/testing/HTML Validator Pass Index.png>)
+
+The contact page was then ran through the same validation process and yielded the following results
+![contactHTML Validation](<assets/testing/contacthtml validator test.png>)
+
+The errors highlighted where then corrected and the code was then tested again, and passed.
+![contactHTML Pass Validation](<assets/testing/contact HTML Validator Pass.png>)
 
 ### CSS Validator
+[CSS Validator](https://jigsaw.w3.org/css-validator/)
+has been used to generate automatic test results for the styles.css code uploaded, the results have been shown below
+![stylesCSS Fail](<assets/testing/CSS Validator Fail.png>)
+Imported styles from google fonts have been flagged but this is an expected outcome and not a result of the code written, a number of warnings have been flagged due to a lack of quotation marks on the font name declaration used in the code, this was then rectified and the following shows the final result
+![stylesCSS Pass](<assets/testing/CSS Validator Pass.png>)
 
 ### JS Validator (JSHint.com)
+[JS Validator](https://jshint.com/) has been used to perform automated testing on the script.js file, the results of which are shown below
+![scriptJS Warnings](<assets/testing/JSHint Code Validator Warnings.png>)
+The pre-dominant error was the missuse of semi-colons relating to the use of arrow functions and statements within functions that had been missed. The errors have been rectified and the code re-tested with the results show below
+![scriptJS Pass](<assets/testing/JSHint Code Validator Pass.png>)
 
-### EmailJS API Testing
+### Email JS API Testing
+Th email-JS APi has been utilised to add functionaility to the contact page, this is to enable users and reviewers to highlight any bugs or suggest any improvements to the game. The code was re-used form the code intitute module on API's and adapted for the purposes of this project.
 
-### User Testing / Alpha Testing
+After implementing the code functioanl testing has taken place to ensure someone filling out the form can indeed send an email that I will recieve, I therefor sent a number of test email to myself to ensure the system was functioning as intended and have attached screenshots to show the API is working correctly.
+
+
+### Alpha Testing
 * As part of user testing the start button was highlighted as "not too obvious" to start the game, I have added a description in the instructions to locate and use start.
 
 * User testing noted that the bank was highlighted as a link this has been removed, as part of the class it is still highlighted as the cursor goes over it, but does not change the cursor to highlight a clickable link.
 
-* 
+* No issues where raised about the game play
+* No issues raised regarding site performance
+* No issues raised with site navigation
+  
+### User Stories Testing
 
 ### JEST Test Suite
-*As part of the development process JEST was consdiered as part of the automated testing strategy but I have opted on this occasion to avoid the TDD route as I am keen to develop the code and my understanding of Javascript including manually testing code and via automated online validators. I would like to produce a suite of JEST tests later on but it does not form part of the project critical path.
+* As part of the development process JEST was consdiered as part of the automated testing strategy but I have opted on this occasion to avoid the TDD route as I am keen to develop the code and my understanding of Javascript including manually testing code through console logs and dev tools to enable me to understand the changes at a more granular level, the code has then been tested via automated online validators. I would like to produce a suite of JEST tests later on but it does not form part of the project critical path.
 
 ## API's
 
@@ -106,7 +184,9 @@ Code Instute Module on Email JS facilitated the implimentation along with the Em
 
 The API has been successfully linked and displays a console log message and response status code after clicking the submit button to feedback whether the communication has been successful. The console log in this event has deliberately been left in to allow persons reviewing to see the functionality and act as proof of its correct use, however if this was not a marked project the console logs would remain clear and a try / catch statement would be implimented to bring the users attention to either successful or failed communication.
 
-### Buges & Fixes
+### Fetch API
+
+## Buges & Fixes
 * Start Stop not updating or changing state.
 -Fix Timeout added - If stop double clicked game will end and update game state
 
@@ -125,9 +205,9 @@ The API has been successfully linked and displays a console log message and resp
 * Pressing execute button before start button or selecting cards would lead to typeError
   - Set alert to inform user to select cards before clicking execute and reload the page to clear console error log
 
-#### Remaining Bugs
+### Remaining Bugs
 * It is possible to have 3 cards flipped at the same time if selecting 1 then 2 then unselecting 1 and then selecting another 2 cards, this will result in an error being caught and the game reloading
-  -No fix implemented at this stage
+  - No fix implemented at this stage
 
 * It is possible to cheat by setting the gameObject.bank = 2000; and completing the next round
   - No fix implemented
