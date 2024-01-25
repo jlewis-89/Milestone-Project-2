@@ -27,12 +27,12 @@ const gameObject = {
     startGameTime() {
         setInterval(() => {
             this.playerTime += 1;
-        }, 1000)
+        }, 1000);
     },
     getPlayerName() {
         this.playerName = prompt("Enter Player Name");
     },
-}
+};
 //click startbutton
 document.getElementById("start").addEventListener("click", () => {
     gameObject.updateBankDiv();
@@ -52,7 +52,7 @@ fetch("./assets/cards.json")
     .then((response) => response.json())
     .then((data) => {
         cardData = [...data, ...data];
-    })
+    });
 // Generate card elements
 let generateCards = () => {
     let gridContainer = document.querySelector(".gridContainer"); // Move inside thew function no need to be in the global space
@@ -88,7 +88,7 @@ let shuffleCards = () => {
         temporaryValue = cardData[currentIndex];
         cardData[currentIndex] = cardData[randomIndex];
         cardData[randomIndex] = temporaryValue;
-    };
+    }
 }; // End of Code Re-use from YouTube Resource
 // start timer
 let timerFunc = () => {
@@ -103,7 +103,7 @@ let reduceMoveTime = () => {
         gameObject.bank -= 100;
         gameObject.updateBankDiv();
         checkWin();
-    };
+    }
 };
 let gameInterval = setInterval(reduceMoveTime,1000); // call function every second
 // select cards
@@ -128,7 +128,7 @@ function selectCards() {
         gameObject.cardTwo = this;
         gameObject.boardLock = true;
     }
-};
+}
 // compare cards on execute button
 document.getElementById("execute").addEventListener("click", () => {
     compareCards();
@@ -137,7 +137,7 @@ document.getElementById("execute").addEventListener("click", () => {
     generateCards();
     getTarget();
     timerFunc();
-})
+});
 let compareCards = () =>{
     try{
         if (gameObject.cardOne.dataset.name !== gameObject.cardTwo.dataset.name || gameObject.cardTwo.dataset.name != gameObject.targetCard){
@@ -158,12 +158,12 @@ let compareCards = () =>{
             gameObject.cardTwo = null;
             gameObject.boardLock = false;
         }
-    }catch (error) {
+    } catch (error) {
         if (error instanceof TypeError){
             alert("Please select two cards before clicking Execute");
             this.location.reload();
-        };
-    };
+        }
+    }
 };
 // Check for win or loose
 let checkWin = () => {
@@ -172,7 +172,7 @@ let checkWin = () => {
         updateScoreboard();
         clearInterval(gameInterval);
     }else if (gameObject.bank === 0){
-        alert("Game Over, Better Luck Next Time " + gameObject.playerName + "!")
+        alert("Game Over, Better Luck Next Time " + gameObject.playerName + "!");
         resetGame();
     }
 };
@@ -187,4 +187,4 @@ let updateScoreboard = () => {
 // Refresh page after game play finished
 let resetGame = () => {
     this.location.reload();
-}
+};

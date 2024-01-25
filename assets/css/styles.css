@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik+Scribble&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Glitch&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
 html {
     max-width: 100%;
     max-height: 100%;
 }
 h1, h2, h3 {
-    font-family: Rubik Scribble, sans-serif;
+    font-family: "Rubik Glitch", sans-serif;
     justify-content: center;
     margin: auto;
 }
@@ -15,7 +15,7 @@ nav {
     justify-content: center;
 }
 body {
-    font-family: DM Sans, sans-serif;
+    font-family: "DM Sans", sans-serif;
     background-color: #4b4453;
 }
 div {
@@ -23,7 +23,6 @@ div {
 }
 button {
     margin: 5px;
-    color:  rgb(169, 241, 169);
 }
 b {
     font-size: 32px;
@@ -44,13 +43,13 @@ footer {
 }
 label {
     padding: 10px;
-    font-family: Rubik Scribble, sans-serif;
+    font-family: "Rubik Glitch", sans-serif;
 }
 .card {
     height: 210px;
     width: 140px;
     border-radius: 16px;
-    background-color: rgb(225, 216, 216);
+    background-color: #ffffff;
     position: relative;
     transform-style: preserve-3d;
     transition: all 0.3s ease-in-out;
@@ -71,15 +70,14 @@ table {
     border:#4b4453 2px;
 }
 th {
-    font-family: Rubik Scribble, sans-serif;
+    font-family: sans-serif;
     padding: 16px;
-    text-underline-position: below;
-    border-inline: 2px solid white; 
+    border-inline: 2px solid #ffffff; 
 }
 tr {
     height: inherit;
     width: auto;
-    border: 2px solid white;
+    border: 2px solid #ffffff;
 }
 td{
     padding: 16px;
@@ -88,12 +86,11 @@ td{
     width: auto;
 }
 .timer {
-    display: flexbox;
     padding: 15px;
     margin: 16px 16px 16px 16px;
-    border: 5px solid white;
+    border: 5px solid #ffffff;
     text-align: center;
-    font-family: Rubik Scribble, sans-serif;
+    font-family: "Rubik Glitch", sans-serif;
 }
 #counter {
     font-family: sans-serif;
@@ -103,7 +100,6 @@ td{
 .hide {
     display: none;
 }
-
 /* Taken from YouTube Resource and edited for project needs */
 .gridContainer{
     display: grid;
@@ -151,7 +147,7 @@ td{
     background-size: cover;
     backface-visibility: hidden;
 }
- /* End of YouTube Resource Styles */
+/* End of YouTube Resource Styles */
 /* Responsive Design  */
 @media (min-width:0px) {
     .gridContainer {
@@ -165,7 +161,7 @@ td{
             height: 80px;
             width: 56px;
             border-radius: 16px;
-            background-color: rgb(225, 216, 216);
+            background-color: #ffffff;
             position: relative;
             transform-style: preserve-3d;
             transition: all 0.3s ease-in-out;
@@ -184,7 +180,7 @@ td{
             height: 134px;
             width: 89px;
             border-radius: 16px;
-            background-color: rgb(225, 216, 216);
+            background-color: #ffffff;
             position: relative;
             transform-style: preserve-3d;
             transition: all 0.3s ease-in-out;
@@ -203,7 +199,7 @@ td{
         height: 168px;
         width: 112px;
         border-radius: 16px;
-        background-color: rgb(225, 216, 216);
+        background-color: #ffffff;
         position: relative;
         transform-style: preserve-3d;
         transition: all 0.3s ease-in-out;
@@ -224,7 +220,7 @@ td{
             height: 210px;
             width: 140px;
             border-radius: 16px;
-            background-color: rgb(225, 216, 216);
+            background-color: #ffffff;
             position: relative;
             transform-style: preserve-3d;
             transition: all 0.3s ease-in-out;
