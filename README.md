@@ -122,6 +122,9 @@ The API has been successfully linked and displays a console log message and resp
 * It is possible to have 3 cards flipped at the same time if selecting 1 then two then unselecting 1 and the selecting another 2 cards
   -No fix implemented at this stage
 
+* It is possible to cheat by setting the gameObject.bank = 2000; and completing the next round
+  - No fix implemented
+
 ## Credit
 Email JS [Code Institute]
 Card Game [https://www.youtube.com/watch?v=xWdkt6KSirw]
