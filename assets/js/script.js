@@ -1,10 +1,6 @@
 // ------------- Fixes and Bugs -------------- 
-// Pressing execute with no cards selected should return an error to the user not the console - error handling?
 //  Use JSHint.com to validate JS, select config for ES6 before running tests
-//
 // -------------------------------------------
-
-
 // UI feature to hide Intro
 document.getElementById("intro-btn").addEventListener("click", function () {
     document.getElementById("intro").classList.add("hide");
@@ -35,7 +31,6 @@ const gameObject = {
     },
     getPlayerName() {
         this.playerName = prompt("Enter Player Name");
-        console.log("player name set to " + this.playerName);
     },
 }
 //click startbutton
@@ -48,7 +43,6 @@ document.getElementById("start").addEventListener("click", () => {
     getTarget();
     timerFunc();
     gameObject.gameStarted = true;
-    // remove start button listener to avoid repeated clicks???
 }, {once: true});
 // Intialise Empty Card data array to recieve fetch response data
 let cardData = [];
@@ -63,7 +57,6 @@ fetch("./assets/cards.json")
 let generateCards = () => {
     let gridContainer = document.querySelector(".gridContainer"); // Move inside thew function no need to be in the global space
     gridContainer.innerHTML = ""; // make empty container to remove old content
-    console.log(cardData);
     for (const card of cardData) { // make const the the card variable is available in the global space for use and updating by other functions
         let cardElement = document.createElement("div");
         cardElement.classList.add("card");
@@ -130,7 +123,6 @@ function selectCards() {
         if (this === gameObject.cardOne) return;   
         if (!gameObject.cardOne){
         gameObject.cardOne = this;
-        console.log({gameObject});
         return;
         }
         gameObject.cardTwo = this;
@@ -186,7 +178,7 @@ let checkWin = () => {
 };
 // update scoreboard
 let updateScoreboard = () => {
-    gameObject.playerScore = gameObject.bank / gameObject.playerTime; 
+    gameObject.playerScore = Math.floor(gameObject.bank *1000 / gameObject.playerTime); 
     document.getElementById("pName").innerHTML = `<td>${gameObject.playerName}</td>`;
     document.getElementById("pScore").innerHTML = `<td>${gameObject.playerScore}</td>`;
     // resetGame()

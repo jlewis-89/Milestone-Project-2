@@ -1,37 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik+Scribble&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
-
 html {
     max-width: 100%;
     max-height: 100%;
 }
-
 h1, h2, h3 {
     font-family: Rubik Scribble, sans-serif;
     justify-content: center;
     margin: auto;
 }
-
 nav {
     font-weight: 800;
     font-size: x-large;
     justify-content: center;
 }
-
 body {
     font-family: DM Sans, sans-serif;
     background-color: #4b4453;
 }
-
 div {
     margin: auto;
 }
-
 button {
     margin: 5px;
     color:  rgb(169, 241, 169);
 }
-
 b {
     font-size: 32px;
 }
@@ -41,7 +34,6 @@ b {
     margin: auto;
     padding: 0vh 25vw 0vh 25vw;
 }
-
 footer {
     position: static;
     bottom: 10px;
@@ -50,12 +42,10 @@ footer {
     padding: 25px 25px 25px 25px;
     margin: 20px;
 }
-
 label {
     padding: 10px;
     font-family: Rubik Scribble, sans-serif;
 }
-
 .card {
     height: 210px;
     width: 140px;
@@ -65,47 +55,38 @@ label {
     transform-style: preserve-3d;
     transition: all 0.3s ease-in-out;
 }
-
 .t-box{
     justify-content: center;
     text-align: center;
 }
-
 #targetCo {
     font-family: sans-serif;
     font-weight: 800;
 }
-
 /* table classes  */
-
 table {
     display: flex;
     justify-content: center;
     text-align: center;
     border:#4b4453 2px;
 }
-
 th {
     font-family: Rubik Scribble, sans-serif;
     padding: 16px;
     text-underline-position: below;
-    border-inline: 2px solid white;
-    
+    border-inline: 2px solid white; 
 }
-
 tr {
     height: inherit;
     width: auto;
     border: 2px solid white;
 }
-
 td{
     padding: 16px;
     margin: auto;
     height: inherit;
     width: auto;
 }
-
 .timer {
     display: flexbox;
     padding: 15px;
@@ -114,12 +95,10 @@ td{
     text-align: center;
     font-family: Rubik Scribble, sans-serif;
 }
-
 #counter {
     font-family: sans-serif;
     font-weight: 800;
 }
-
 /* js classes */
 .hide {
     display: none;
@@ -135,7 +114,6 @@ td{
     grid-template-columns: repeat(5, 140px);
     grid-template-rows: repeat(2, 210px);
 }
-
 .front {
     backface-visibility: hidden;
     position: absolute;
@@ -145,7 +123,6 @@ td{
     height: 100%;
     width: 100%;
 }
-
 .back {
     backface-visibility: hidden;
     position: absolute;
@@ -155,23 +132,19 @@ td{
     height: 100%;
     width: 100%;
 }
-
 .front-image {
     height: 60px;
     width: 60px;
 }
-
 .card.flipped {
     transform: rotateY(180deg);
 }
-
 .card .front{
     display: flex;
     justify-content: center;
     align-items: center;
     transform: rotateY(180deg);
 }
-
 .card .back {
     background-image: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='40' height='40' patternTransform='scale(2) rotate(0)'><rect x='0' y='0' width='100%' height='100%' fill='hsla(0, 85%, 41%, 1)'/><path d='M20 20v20h20V20zm10 5l5 5-5 5-5-5zM0 0v20h20V0zm10 5l5 5-5 5-5-5z'  stroke-width='1' stroke='none' fill='hsla(259, 90%, 44%, 1)'/><path d='M10 25l5 5-5 5-5-5zM30 5l5 5-5 5-5-5z'  stroke-width='1' stroke='none' fill='hsla(0, 0%, 100%, 1)'/></pattern></defs><rect width='800%' height='800%' transform='translate(0,0)' fill='url(%23a)'/></svg>");
     background-position: center center;
@@ -179,9 +152,7 @@ td{
     backface-visibility: hidden;
 }
  /* End of YouTube Resource Styles */
-
-/* responsive design  */
-
+/* Responsive Design  */
 @media (min-width:0px) {
     .gridContainer {
             display: grid;
@@ -190,7 +161,6 @@ td{
             grid-template-columns: repeat(5, 56px);
             grid-template-rows: repeat(2, 80px);
         }
-    
     .card {
             height: 80px;
             width: 56px;
@@ -200,9 +170,7 @@ td{
             transform-style: preserve-3d;
             transition: all 0.3s ease-in-out;
         }
-    
 }
-
 /* // Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
     .gridContainer {
@@ -212,7 +180,6 @@ td{
             grid-template-columns: repeat(5, 89px);
             grid-template-rows: repeat(2, 134px);
         }
-    
     .card {
             height: 134px;
             width: 89px;
@@ -223,7 +190,6 @@ td{
             transition: all 0.3s ease-in-out;
         }
 }
-
 /* // Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
     .gridContainer {
@@ -233,7 +199,6 @@ td{
         grid-template-columns: repeat(5, 112px);
         grid-template-rows: repeat(2, 168px);
     }
-
     .card {
         height: 168px;
         width: 112px;
@@ -244,7 +209,6 @@ td{
         transition: all 0.3s ease-in-out;
     }
 }
-
 /* // Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
     .gridContainer {

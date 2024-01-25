@@ -2,13 +2,10 @@
 document.addEventListener("DOMContentLoaded", function () {
     // Hide Intro Paragraph to Imporve UI & UX
     let introHide = document.getElementById("intro");
-
-
     // Hide Instruction paragraph for better UX
     introHide.addEventListener("click", function () {
         introHide.classList.add("hide");
     });
-
     // Test Script Running
     console.log("Hello World");
     // Mention in readme all variable declarations at the start of the code is a design choice
@@ -27,13 +24,11 @@ document.addEventListener("DOMContentLoaded", function () {
     let gridContainer = document.querySelector(".gridContainer");
     let firstCard, secondCard;
     let locked = false;
-
     fetch("assets/cards.json")
         .then((response) => response.json())
         .then((data) => {
             cardDeck = [...data, ...data];
         });
-
     function shuffleDeck() {
         let currentIndex = cardDeck.length,
             randomIndex, temporaryValue;
@@ -46,7 +41,6 @@ document.addEventListener("DOMContentLoaded", function () {
             console.log("deck Shuffled");
         };
     };
-
     function generateCards() {
         for (let card of cardDeck) {
             let cardElement = document.createElement("div");
@@ -62,7 +56,6 @@ document.addEventListener("DOMContentLoaded", function () {
             cardElement.addEventListener("click", flipCard);
         };
     };
-
     function flipCard() {
         if (locked) return;
         if (this === firstCard) return;
@@ -77,7 +70,6 @@ document.addEventListener("DOMContentLoaded", function () {
         // locked = true;
         checkMatch();
     };
-
     function checkMatch() {
         console.log(firstCard);
         console.log(firstCard.dataset["name"]);
@@ -96,13 +88,11 @@ document.addEventListener("DOMContentLoaded", function () {
             unflipCards();
         };  
     };
-
     function disableCards() {
         firstCard.removeEventListener("click", flipCard);
         secondCard.removeEventListener("click", flipCard);
         resetBoard();
     };
-
     function unflipCards() {
         setTimeout(() => {
             firstCard.classList.remove("flipped");
@@ -110,7 +100,6 @@ document.addEventListener("DOMContentLoaded", function () {
             resetBoard();
         }, 500);
     };
-
     function resetBoard() {
         firstCard = null;
         secondCard = null;
@@ -123,25 +112,20 @@ document.addEventListener("DOMContentLoaded", function () {
         return coTicker[targetIndex];
     }
     let targetTicker = newTarget(coTicker);
-
     // Update Page with Ticker Target
     targetCo.innerHTML = targetTicker;
-    
     executeBtn.addEventListener("click", () => {
         targetTicker = newTarget(coTicker); // call newTarget function and update target Ticker
         console.log("target is " + targetTicker); //testing function
         targetCo.innerHTML = targetTicker;
         executeButtonPressed();
     });
-
     function executeButtonPressed() {
         checkMatch();
         // resetBoard();
         updateTimer();
     };
-   
-    function gameFunc(coTicker){
-            
+    function gameFunc(coTicker){       
         console.log("gameFunc ran")
         startGame.innerHTML = "Reset";
         bank.innerHTML = pScore;
@@ -153,35 +137,27 @@ document.addEventListener("DOMContentLoaded", function () {
         // flipCard();
         // unflipCards();  
         setInterval(countDown, 1000); // Call countdown function every second     
-    }; 
-        
+    };     
         // Generate Random Time, check its not 0 (if so make it 10)
     function updateTimer() {
         if (moveTime === 0){
             moveTime = 15;
         } else { moveTime = Math.floor(Math.random() * 100); }; // Prevent moveTime = 0
         counter.innerHTML = moveTime; // Update moveTime
-    };
-
-   
-    
+    }; 
     // Countdown the Timer interval
     function countDown() {
         moveTime = typeof moveTime === 'number' ? moveTime : 0; //Check moveTime initailised at a number to fix NaN bug
         moveTime = Math.max(0, moveTime - 1); //minus 1 from moveTime up to a max of 0
         counter.innerHTML = moveTime; // Update moveTime
     };
-
-
     // Call to start / stop game
     let startGameHandler = () => {
         gameRun = !gameRun;
         gameFunc(coTicker);
         setTimeout(toggleTest, 1500);  // test gameRun state every 1500ms
     };
-
     startGame.addEventListener("click", startGameHandler);
-
     let toggleTest = () =>{
         if (gameRun = !gameRun){
         // startGame.innerHTML = "Start";
@@ -192,30 +168,23 @@ document.addEventListener("DOMContentLoaded", function () {
         this.location.reload()
         };
     };
-
     let userName = () => {
     let pName = prompt("Enter Player Name");
     console.log(pName);
     playerName.innerHTML = pName;
     pScore = document.getElementById("bank").innerHTML;
     };
-
     let playerName = document.getElementById("playerName");
-
     if (pScore === 0){
     gameOverLost();
     }else if (pScore === 20000){
     gameOverWin();
     };
-
     function gameOverLost (){
         alert("Game Over!! Better Luck Next Time")
     };
-
     function gameOverWin (){
         alert("Congratulations You WON!")
         userName();
     };
-
 }); // End of DOM Loader
-

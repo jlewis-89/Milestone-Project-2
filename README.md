@@ -70,6 +70,8 @@ The timer is present and centeral to the page to ensure it is always visible, th
 Ideas that where initially considered and where either not implemented due to technical restrictions, time or where considered off the critical path for the project but may always be implemented later.
 *Link card data to yahoo finance API to update cards and logos / tickers with the most valuable tech stocks at the point of play.
 * Highscore board storage of data / information to retain highscore from players, this could be done in local / session or cookie storage but would not have fully utilised the feature as it would not enable different users on different machines to compete.
+* Adding and removing CSS when the player runs out of time to highlight the bank being reduced and create a sense of panic.
+* Implementing modals instead of alerts, the benefit of alert is that it pasues the running functions, however time did not allow me to add modals to replace the alerts used in game.
 
 ## Testing
 ### HTML Validator
@@ -93,11 +95,9 @@ Ideas that where initially considered and where either not implemented due to te
 ### Email JS
 Email JS has been used to add functionality to the contact form enabling site users to conact the developer with any bugs or suggested improvements.
 
-Code Instute Module on Email JS facilitated the implimentation aloing with the Email JS Documentation and example code
+Code Instute Module on Email JS facilitated the implimentation along with the Email JS Documentation and example code
 
-The API has been successfully linked and displays a console log message and  response status code after clicking the submit button to feedback whther the communication has been successful.
-
-## Notes
+The API has been successfully linked and displays a console log message and response status code after clicking the submit button to feedback whether the communication has been successful. The console log in this event has deliberately been left in to allow persons reviewing to see the functionality and act as proof of its correct use, however if this was not a marked project the console logs would remain clear and a try / catch statement would be implimented to bring the users attention to either successful or failed communication.
 
 ### Buges & Fixes
 *Start Stop not updating or changing state.
@@ -106,11 +106,21 @@ The API has been successfully linked and displays a console log message and  res
 *Random time generator can generate 0 as time
 -Fix if statement if 0 add 10
 
-*Random time can be less than 5s
--Fix ...
-
 * Timer function froze
   - Moved function call out of gameFunc
+
+* Timer would continue counting after game play ended
+  - Set clearInterval to stop timer counting down
+
+* Shuffle deck not updating cards
+  - Added line to clear innerHTML of grid container then call generate cards function
+
+*Pressing execute button before start button or selecting cards would lead to typeError
+  - Set alert to inform user to select cards before clicking execute and reload the page to clear console error log
+
+#### Remaining Bugs
+* It is possible to have 3 cards flipped at the same time if selecting 1 then two then unselecting 1 and the selecting another 2 cards
+  -No fix implemented at this stage
 
 ## Credit
 Email JS [Code Institute]
@@ -130,9 +140,10 @@ Card Game [https://www.youtube.com/watch?v=xWdkt6KSirw]
 * BS5 - bootstrap navbar
 * BS5 - Form Layout and Button with additional CSS
 * Code Institute - Email JS Module
+* YouTube Card Game Mentioned in Credit section above
 
 ## Acknowledgements
 This work would not have been possible with out the assitance of:
 * Code Institute and City of Bristol College as a joint Content & Training Provider
 * My Mentor Rohit Sharma - Providing project guidance in the inital phase
-* My friend Dave J Horrocks - Providing advice, wisdom and guidance, without giving me any code!
+* My friend Dave J Horrocks - Providing advice, wisdom and guidance, without giving me any code
