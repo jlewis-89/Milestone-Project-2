@@ -1,8 +1,8 @@
 # Milestone Project 2 - Interactive Frontend Development
 ## FinTech Card Game Project
 ![Mockup](/assets/testing/smartmockups_lrrt0ndi.jpg)
-// Deployed Link
-// Repo Link
+#### [MSP 2 Fintech Card Game](https://jlewis-89.github.io/Milestone-Project-2/)
+#### [GitHub Repositry](https://github.com/jlewis-89/Milestone-Project-2)
 
 # Table of Contents
 * Purpose
@@ -55,8 +55,9 @@ The purpose of this website is to create a card game based on fast paced executi
 The website was built with the intention of creating both an enjoyable and yet challenging experience for the user.
 
 ## Project Goals
-| Goals             | Implementation|
-|:------------------|:--------------|
+| Goals | Implementation|
+|:----- |:--------------|
+| Create a fun and interactive web app | Fintech Card game is a interactive card game |
 
 ## User Goals
 | Goals | Implementation |
@@ -65,6 +66,10 @@ The website was built with the intention of creating both an enjoyable and yet c
 ## Developer Goals
 | Goals | Implementation |
 | :---- | :------------- |
+| Build an Interactive webpage using JS | The project relies heavily on the JS language for functionality|
+| Develop my skills and understanding of Javascript | Use of various functions methods and API calls|
+| Test an interactive webpage | Tested with both automatic and manual techniques |
+| Deploy the project for review | Deployed to GitHub Pages |
 
 ## Technologies Used
 * HTML
@@ -175,6 +180,10 @@ After implementing the code functioanl testing has taken place to ensure someone
 ### JEST Test Suite
 * As part of the development process JEST was consdiered as part of the automated testing strategy but I have opted on this occasion to avoid the TDD route as I am keen to develop the code and my understanding of Javascript including manually testing code through console logs and dev tools to enable me to understand the changes at a more granular level, the code has then been tested via automated online validators. I would like to produce a suite of JEST tests later on but it does not form part of the project critical path.
 
+### Browser Testing
+As part of testing the webpage after deploying it to GitHub Pages the site has been opened and tested for both functionality and responsivity on the following browsers son both mobile and desktop screen sizes.
+* Google Chrome / Mozilla Firefox / Microsoft Edge
+
 ## API's
 
 ### Email JS
@@ -271,11 +280,11 @@ Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-re
 * Code Institute LMS
 
 ### Image Assets
-* loader gif sourced @ https://gifer.com/en/gifs/loader
-* joker png sourced from powerpoint icons
-* Tesla logo [https://upload.wikimedia.org/wikipedia/commons/e/e8/Tesla_logo.png]
-* Microsoft [https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/1024px-Microsoft_logo.svg.png]
-* Apple [https://1000logos.net/apple-logo/]
+* [loader.gif](https://gifer.com/en/gifs/loader)
+* [Tesla logo](https://upload.wikimedia.org/wikipedia/commons/e/e8/Tesla_logo.png)
+* [Microsoft](https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/1024px-Microsoft_logo.svg.png)
+* [Apple](https://1000logos.net/apple-logo/)
+* joker.png sourced from Microsoft Powerpoint icons
 
 ### Code Re-Use
 * BS5 - bootstrap navbar
