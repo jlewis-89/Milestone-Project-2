@@ -1,15 +1,12 @@
-// ------------- Fixes and Bugs -------------- 
-//  Use JSHint.com to validate JS, select config for ES6 before running tests
-// -------------------------------------------
-// UI feature to hide Intro
+// Hide Instructions
 document.getElementById("intro-btn").addEventListener("click", function () {
     document.getElementById("intro").classList.add("hide");
 });
-// Bring back intro list if instructions link clicked
+// Show Instructions
 document.getElementById("showIntro").addEventListener("click", function() {
     document.getElementById("intro").classList.remove("hide");
 });
-// Game object to hold global variables that the game will access and update as needed
+// Game object hold global variables
 const gameObject = {
     gameStarted: false,
     bank: 1000,
@@ -44,7 +41,7 @@ document.getElementById("start").addEventListener("click", () => {
     timerFunc();
     gameObject.gameStarted = true;
 }, {once: true});
-// Intialise Empty Card data array to recieve fetch response data
+// Intialise Empty Card data array
 let cardData = [];
 // Code re-used from youtube resource see ReadMe
 // fetch data from json file
@@ -55,9 +52,9 @@ fetch("./assets/cards.json")
     });
 // Generate card elements
 let generateCards = () => {
-    let gridContainer = document.querySelector(".gridContainer"); // Move inside thew function no need to be in the global space
-    gridContainer.innerHTML = ""; // make empty container to remove old content
-    for (const card of cardData) { // make const the the card variable is available in the global space for use and updating by other functions
+    let gridContainer = document.querySelector(".gridContainer");
+    gridContainer.innerHTML = "";
+    for (const card of cardData) {
         let cardElement = document.createElement("div");
         cardElement.classList.add("card");
         cardElement.setAttribute("data-name", card.name);
@@ -71,14 +68,14 @@ let generateCards = () => {
         cardElement.addEventListener("click", selectCards);
     }
 }; // End of Code Reuse from YouTube Resource
-// display a target
+// Select target
 let getTarget = () => {
     let targetArr = ["TSLA", "AAPL", "MSFT"];
     let targetIndex = Math.floor(Math.random() * targetArr.length);
     document.getElementById("targetCo").innerHTML = targetArr[targetIndex];
     gameObject.targetCard = targetArr[targetIndex];
 };
-// shuffle the deck - Code from youtube resource amended to integrate - See ReadMe
+// Shuffle deck - Code from youtube resource adapted for needs - See ReadMe
 let shuffleCards = () => {
     let currentIndex = cardData.length,
         randomIndex, temporaryValue;
@@ -90,23 +87,21 @@ let shuffleCards = () => {
         cardData[randomIndex] = temporaryValue;
     }
 }; // End of Code Re-use from YouTube Resource
-// start timer
+// Start timer
 let timerFunc = () => {
     gameObject.moveTime = Math.floor(Math.random() * 100);
     document.getElementById("counter").innerHTML = gameObject.moveTime;
 };
 let reduceMoveTime = () => {
-   // gameObject.moveTime === typeof "number" ? gameObject.moveTime : 0; // check is a number ---------- Discuss with Dave
-    gameObject.moveTime = Math.max(0, gameObject.moveTime -1); // set limit to avoid negative numbers and reduce by 1
-    document.getElementById("counter").innerHTML = gameObject.moveTime; // update HTML
+    gameObject.moveTime = Math.max(0, gameObject.moveTime -1);
+    document.getElementById("counter").innerHTML = gameObject.moveTime;
     if (gameObject.gameStarted == true && gameObject.moveTime === 0){
         gameObject.bank -= 100;
         gameObject.updateBankDiv();
         checkWin();
     }
 };
-let gameInterval = setInterval(reduceMoveTime,1000); // call function every second
-// select cards
+let gameInterval = setInterval(reduceMoveTime,1000);
 function selectCards() {
     if(this.classList.contains("flipped")){
         this.classList.remove("flipped");
@@ -119,7 +114,6 @@ function selectCards() {
     }else{
         if (gameObject.boardLock) return;
         this.classList.add("flipped");
-        
         if (this === gameObject.cardOne) return;   
         if (!gameObject.cardOne){
         gameObject.cardOne = this;
@@ -129,7 +123,7 @@ function selectCards() {
         gameObject.boardLock = true;
     }
 }
-// compare cards on execute button
+// Execute button
 document.getElementById("execute").addEventListener("click", () => {
     compareCards();
     checkWin();
@@ -165,7 +159,7 @@ let compareCards = () =>{
         }
     }
 };
-// Check for win or loose
+// Check win/loose
 let checkWin = () => {
     if (gameObject.bank >= 2000) {
         alert("Congratualtions you Won in " + gameObject.playerTime + " seconds");
@@ -176,15 +170,12 @@ let checkWin = () => {
         resetGame();
     }
 };
-// update scoreboard
 let updateScoreboard = () => {
     gameObject.playerScore = Math.floor(gameObject.bank *1000 / gameObject.playerTime); 
     document.getElementById("pName").innerHTML = `<td>${gameObject.playerName}</td>`;
     document.getElementById("pScore").innerHTML = `<td>${gameObject.playerScore}</td>`;
-    // resetGame()
-    sessionStorage.setItem(gameObject.playerName, gameObject.playerScore); // Feature to store highscores in window session only
 };
-// Refresh page after game play finished
+// Refresh game
 let resetGame = () => {
     this.location.reload();
 };
