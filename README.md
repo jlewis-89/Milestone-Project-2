@@ -58,10 +58,7 @@ The website was built with the intention of creating both an enjoyable and yet c
 | Goals | Implementation|
 |:----- |:--------------|
 | Create a fun and interactive web app | Fintech Card game is a interactive card game |
-
-## User Goals
-| Goals | Implementation |
-| :---- | :------------- |
+| Advance my knowledge of Javascript | Developed a game in Javascript |
 
 ## Developer Goals
 | Goals | Implementation |
@@ -89,7 +86,8 @@ The website was built with the intention of creating both an enjoyable and yet c
 ### User Stories
 * As a user I would like to experience a fun and interactive game that is also educational and enjoyable to play
 * As a user I would like to be able to navigate around the website simply and easily, with a clean and comfortable User Interface
-* As a user of this website I would like to understand how to play the game in a simple and uncomplicated manner
+* As a user, I would like to understand how to play the game in a simple and uncomplicated manner
+* As a user, I want to be able to start a new game, so that I can play again.
 
 ## UI
 ### Design
@@ -132,7 +130,13 @@ Ideas that where initially considered and where either not implemented due to te
 * With more time I would have liked to add more animations and effects to enhance the UX
 
 ## Testing
-Automated Testing via online validators has been performed to ensure the code comlies with current industry standards and expectations, the results of which have been compiled below.
+
+Testing code is an important part of the development process, during the development of this project manual testing was carried out to ensure functionality and correct operation while in development and post development. A combination of both automated and manual testing has been utilised in this project to ensure a comprehensive review of the work before deployment.
+Manual testing is usually best fitted to smaller scale project but has the advantage of highlighting UI issues. Automated testing is usually carried out by softwarte or in this case online services and is best suited to large scale applications and is less error prone.
+
+Manual testing has been carried out by myself during development and by a number of friends and family memebers in the alpha testing phase where by functionality and UI have been assessed and issues highlighted have been ackwonledged and rectified.
+
+Automated testing via online validators has been performed to ensure the code complies with current industry standards and expectations, the results of which have been compiled below.
 
 ### HTML Validator
 [W3 HTML Validator](https://validator.w3.org/)
@@ -161,10 +165,13 @@ The pre-dominant error was the missuse of semi-colons relating to the use of arr
 ![scriptJS Pass](<assets/testing/JSHint Code Validator Pass.png>)
 
 ### Email JS API Testing
-Th email-JS APi has been utilised to add functionaility to the contact page, this is to enable users and reviewers to highlight any bugs or suggest any improvements to the game. The code was re-used form the code intitute module on API's and adapted for the purposes of this project.
+Th email-JS API has been utilised to add functionaility to the contact page, this is to enable users and reviewers to highlight any bugs or suggest any improvements to the game. The code was re-used form the code intitute module on API's and adapted for the purposes of this project.
 
 After implementing the code functioanl testing has taken place to ensure someone filling out the form can indeed send an email that I will recieve, I therefor sent a number of test email to myself to ensure the system was functioning as intended and have attached screenshots to show the API is working correctly.
-
+Below is the intial form inputs
+![Contact Form](<assets/testing/Email JS Test.png>)
+Below is the response recieved via email
+![Email Recieved](<assets/testing/Email JS Test Result.png>)
 
 ### Alpha Testing
 * As part of user testing the start button was highlighted as "not too obvious" to start the game, I have added a description in the instructions to locate and use start.
@@ -184,6 +191,9 @@ After implementing the code functioanl testing has taken place to ensure someone
 As part of testing the webpage after deploying it to GitHub Pages the site has been opened and tested for both functionality and responsivity on the following browsers son both mobile and desktop screen sizes.
 * Google Chrome / Mozilla Firefox / Microsoft Edge
 
+### Performance Testing with Lighthouse
+
+
 ## API's
 
 ### Email JS
@@ -194,6 +204,7 @@ Code Instute Module on Email JS facilitated the implimentation along with the Em
 The API has been successfully linked and displays a console log message and response status code after clicking the submit button to feedback whether the communication has been successful. The console log in this event has deliberately been left in to allow persons reviewing to see the functionality and act as proof of its correct use, however if this was not a marked project the console logs would remain clear and a try / catch statement would be implimented to bring the users attention to either successful or failed communication.
 
 ### Fetch API
+The fetch API has been utilised in place of the traditional XMLHttpRequest as it is considered a better alternative. Fetch is promise based meaning once you call the method `fetch()` with the resource URL it requires a `.then` statement to process the data from the response object. This has been implemented for this project as it was highlighted in the YouTube resources where a number of functions where used and repurposed, but after some further research has been shown to be a useful API to learn and use for accessing and manipulating externally located resources. In the project it links to the JSON file holding the images used for the cards. 
 
 ## Buges & Fixes
 * Start Stop not updating or changing state.
